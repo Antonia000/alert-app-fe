@@ -1,0 +1,19 @@
+@use "../../../../../styles.scss" as vars;
+.app {
+  &__header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 80px;
+    gap: 30px;
+    color: vars.$primary-color;
+    border-bottom: 2px solid vars.$border-color;
+    &__icon {
+      display: flex;
+      align-items: center;
+      img {
+        width: 65px;
+        height: 60px;
+      }
+    }
+  }
+}
