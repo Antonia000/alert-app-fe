@@ -1,0 +1,33 @@
+<div class="container">
+  <div
+    class="container__alert"
+    [ngClass]="{
+      galben: alert.intensitate === 'Avertizare cod galben',
+      portocaliu: alert.intensitate === 'Avertizare cod portcaliu',
+      rosu: alert.intensitate === 'Avertizare cod rosu'
+    }"
+    *ngFor="let alert of mappedAlerts"
+  >
+    <div class="container__alert__title">
+      <p *ngIf="alert?.judet" class="container__alert__county">
+        {{ alert.judet }}
+      </p>
+      <p class="container__alert__type">
+        {{ alert.intensitate }}
+      </p>
+    </div>
+
+    <div class="container__alert__date">
+      <p class="container__alert__date__day">
+        {{ alert.data }}
+      </p>
+
+      <p>
+        {{ alert.durata }}
+      </p>
+    </div>
+    <div class="container__alert__info">
+      {{ alert.semnalare }}
+    </div>
+  </div>
+</div>

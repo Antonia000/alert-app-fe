@@ -1,0 +1,28 @@
+<div
+  *ngIf="!isMini"
+  class="card"
+  [ngStyle]="{ 'background-image': 'url' + '(' + background + ')' }"
+>
+  <div class="card__left">
+    <p>{{ title }}</p>
+    <p class="card__left__more">umeazeala: {{ additional.umezeala }}</p>
+    <p class="card__left__more">vant: {{ additional.vant }}</p>
+  </div>
+  <div class="card__right">
+    <p>{{ text }}&deg;C</p>
+  </div>
+</div>
+
+<div
+  *ngIf="isMini"
+  class="card__mini"
+  [ngStyle]="{ 'background-image': 'url' + '(' + background + ')' }"
+>
+  <div class="card__mini__top">
+    <p class="card__mini__top__county">{{ county }}</p>
+    <p>{{ text }}&deg;C</p>
+  </div>
+  <div class="card__mini__bottom">
+    <p>{{ title }}</p>
+  </div>
+</div>

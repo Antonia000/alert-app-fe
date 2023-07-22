@@ -1,8 +1,47 @@
 <div class="app__header">
-  <div class="app__header__icon">
-    <img src="../../../../../assets/img/header-icon-cloud.png" />
-    <span>16 C astazi in Bucuresti</span>
+  <div class="app__header__inline">
+    <span *ngIf="hasSelect" class="app__header__inline__text"
+      >Selecteaza oras:
+    </span>
+    <div *ngIf="hasSelect" class="select">
+      <select #counties (change)="handleSelectedCounty(counties.value)">
+        <option value="bucuresti">Bucuresti</option>
+        <option value="braila">Braila</option>
+        <option value="buzau">Buzau</option>
+      </select>
+    </div>
   </div>
+  <div class="app__header__inline">
+    <div class="app__header__icon">
+      <img src="../../../../../assets/img/header-icon-cloud.png" />
+      <a
+        [routerLink]="'/avertizari-meteo'"
+        *ngIf="!temperatureWidget.temp"
+        class="app__header__inline__text"
+        >vezi vremea în <b>orasul tău</b></a
+      >
+      <span *ngIf="temperatureWidget.temp" class="app__header__inline__bold"
+        >{{ temperatureWidget.temp }}&deg;C
+      </span>
+      <span *ngIf="temperatureWidget.city" class="app__header__inline__text">
+        astazi in {{ temperatureWidget.city }}
+      </span>
+    </div>
 
-  <h4>RO/EN</h4>
+    <div>
+      <button
+        class="app__header__inline__button"
+        (click)="handleTranslate('ro')"
+      >
+        RO
+      </button>
+      /
+      <button
+        class="app__header__inline__button"
+        (click)="handleTranslate('en')"
+      >
+        EN
+      </button>
+    </div>
+  </div>
 </div>

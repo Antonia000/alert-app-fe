@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="container__weather">
+    <p class="container__weather__title">Vremea în România</p>
+    <div
+      *ngIf="weatherForecast$ | async as weatherForecasts"
+      class="container__weather__forecasts"
+    >
+      <app-card
+        *ngFor="let forecast of weatherForecasts"
+        [isMini]="true"
+        [county]="forecast.oras"
+        [title]="forecast.nebulozitate"
+        [text]="forecast.temperatura"
+        [background]="'../../../../assets/img/card-bg.jpg'"
+      ></app-card>
+      <a [routerLink]="['/avertizari-meteo']"
+        >vezi vremea în <b>orasul tău</b>
+      </a>
+    </div>
+  </div>
+  <div
+    class="container__nowcast"
+    *ngIf="nowcastAlerts$ | async as nowcastAlerts"
+  >
+    <p class="container__nowcast__title">Alerte active în România</p>
+    <app-alert-section
+      *ngIf="nowcastAlerts.length > 0"
+      [alerts]="nowcastAlerts"
+    ></app-alert-section>
+    <app-no-data-card
+      *ngIf="nowcastAlerts.length === 0"
+      [text]="'In ultima ora'"
+      [title]="'Nu exista alerte emise'"
+    ></app-no-data-card>
+    <a *ngIf="nowcastAlerts.length > 0" [routerLink]="['/avertizari-meteo']"
+      >vezi avertizări în <b>județul tău</b>
+    </a>
+  </div>
+</div>

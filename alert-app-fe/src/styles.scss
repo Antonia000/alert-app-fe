@@ -1,13 +1,41 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
-body {
+body,
+html {
+  height: 100%;
   margin: 0;
   font-family: "Poppins", sans-serif;
 }
 
+#sidenav:focus ~ body {
+  margin-left: 250px;
+  transition-delay: 0.25s;
+}
+
+// colors
 $primary-color: #2f1f88;
+$primary-color-light: #a39dc1;
 $secondary-color: #2e8498;
 $secondary-color-light: #7bb4c4;
 $secondary-color-bg: #d8e8ed;
-$accent-color: #e8d5b5;
+$accent-color: #fdf4e5;
 
 $border-color: #efefef;
+
+$extreme-weather: #fc4b55;
+$extreme-weather-fade: #ff949a;
+$severe-weather: #f48535;
+$severe-weather-fade: #ffa564;
+$mild-weather: #fce071;
+$mild-weather-fade: #fff1b8;
+
+// fonts
+$font-size-extra-small: 12px;
+$font-size-small: 14px;
+$font-size-medium: 18px;
+$font-size-title: 22px;
+$font-size-large: 30px;
+$font-size-extra-large: 42px;
+
+$font-weight-normal: 500;
+$font-weight-medium: 600;
+$font-weight-bold: 800;

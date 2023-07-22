@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HomeComponent } from './home.component';
+import { CardComponent } from './card.component';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [CardComponent],
   imports: [BrowserModule],
-  exports: [HomeComponent],
+  exports: [CardComponent],
 })
-export class HomeModule {}
+export class CardModule {}

@@ -1,0 +1,50 @@
+@use "../../../../styles.scss" as vars;
+.container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10%;
+  width: 100%;
+
+  &__weather {
+    width: 40%;
+    margin: 20px 0;
+    &__title {
+      color: vars.$primary-color;
+      font-weight: vars.$font-weight-normal;
+      font-size: vars.$font-size-title;
+      margin-bottom: 12px;
+    }
+
+    &__forecasts {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      a {
+        width: 100%;
+        color: vars.$primary-color;
+        font-size: vars.$font-size-small;
+        text-align: right;
+        padding-top: 10px;
+      }
+    }
+  }
+  &__nowcast {
+    flex-wrap: wrap;
+    width: 40%;
+    margin: 20px 0;
+    a {
+      color: vars.$primary-color;
+      font-size: vars.$font-size-small;
+      text-align: right;
+    }
+    &__title {
+      color: vars.$primary-color;
+      font-weight: vars.$font-weight-normal;
+      font-size: vars.$font-size-title;
+      margin-bottom: 12px;
+    }
+    * {
+      width: 100%;
+    }
+  }
+}

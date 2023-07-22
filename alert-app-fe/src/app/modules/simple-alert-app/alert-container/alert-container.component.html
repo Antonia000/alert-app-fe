@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="container__weather">
+    <p class="container__weather__title">Vremea în {{ selectedCity }}</p>
+    <div class="container__weather__forecasts">
+      <app-card
+        [county]="weatherForecast.oras"
+        [title]="weatherForecast.nebulozitate"
+        [text]="weatherForecast.temperatura"
+        [background]="'../../../../assets/img/card-bg.jpg'"
+        [additional]="{
+          umezeala: weatherForecast.umezeala,
+          vant: weatherForecast.vant
+        }"
+      ></app-card>
+    </div>
+  </div>
+  <div class="container__nowcast">
+    <p class="container__nowcast__title">Alerte active în {{ selectedCity }}</p>
+    <app-alert-section [alerts]="nowcastMock"></app-alert-section>
+    <a [routerLink]="['/acasa']">vezi avertizări în <b>toată țara</b> </a>
+  </div>
+</div>

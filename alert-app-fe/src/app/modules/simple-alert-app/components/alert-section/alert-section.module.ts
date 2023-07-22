@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HeaderComponent } from './header.component';
+import { AlertSectionComponent } from './alert-section.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [AlertSectionComponent],
   imports: [BrowserModule, RouterModule],
-  exports: [HeaderComponent],
+  exports: [AlertSectionComponent],
 })
-export class HeaderModule {}
+export class AlertSectionModule {}

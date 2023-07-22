@@ -1,0 +1,94 @@
+@use "../../../../../styles.scss" as vars;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: inherit;
+  &__alert {
+    height: 2.2em;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid vars.$border-color;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: height 1s;
+    &__info {
+      font-size: vars.$font-size-extra-small;
+      color: vars.$primary-color-light;
+      padding-top: 10px;
+    }
+    &__title {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      white-space: nowrap;
+      width: 75%;
+    }
+    &__county {
+      margin: 0;
+      font-size: vars.$font-size-small;
+      font-weight: vars.$font-weight-normal;
+      color: vars.$secondary-color-light;
+    }
+    &__date {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+      width: 25%;
+      color: vars.$primary-color;
+      font-size: vars.$font-size-small;
+      font-weight: vars.$font-weight-normal;
+      p {
+        margin: 2px;
+        width: 100%;
+      }
+      &__day {
+        font-size: vars.$font-size-small;
+        font-weight: vars.$font-weight-medium;
+      }
+    }
+    &__type {
+      font-weight: vars.$font-weight-medium;
+      font-size: vars.$font-size-medium;
+      margin: 0;
+    }
+  }
+  &__alert:hover {
+    height: 4.5em;
+  }
+}
+
+.rosu {
+  border-left: 10px solid vars.$extreme-weather;
+  background-image: linear-gradient(
+    to right,
+    white,
+    vars.$extreme-weather-fade
+  );
+  color: vars.$extreme-weather;
+}
+.portocaliu {
+  border-left: 10px solid vars.$severe-weather;
+  background-image: linear-gradient(
+    to right,
+    vars.$border-color,
+    vars.$severe-weather-fade
+  );
+  color: vars.$severe-weather;
+  font-size: vars.$font-size-title;
+}
+.galben {
+  border-left: 10px solid vars.$mild-weather;
+  background-image: linear-gradient(
+    to right,
+    vars.$border-color,
+    vars.$mild-weather-fade
+  );
+  color: vars.$mild-weather;
+  font-size: vars.$font-size-title;
+}

@@ -1,0 +1,23 @@
+@use "../../../../../styles.scss" as vars;
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1px solid none;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, white, vars.$primary-color-light);
+  padding: 25px 35px;
+
+  &__title {
+    width: 100%;
+    font-weight: vars.$font-weight-normal;
+    font-size: vars.$font-size-medium;
+    color: vars.$primary-color;
+    margin: 0;
+  }
+  &__text {
+    color: vars.$primary-color-light;
+    font-size: vars.$font-size-extra-small;
+    margin: 0;
+  }
+}

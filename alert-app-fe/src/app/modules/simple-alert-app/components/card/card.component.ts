@@ -1,0 +1,22 @@
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
+})
+export class CardComponent implements OnInit {
+  @Input() title: string = '';
+  @Input() text: string = '';
+  @Input() background: string = '';
+  @Input() isMini: boolean = false;
+  @Input() county: string = '';
+  @Input() additional: { umezeala?: string; vant?: string } = {
+    umezeala: undefined,
+    vant: undefined,
+  };
+
+  constructor() {}
+
+  ngOnInit(): void {}
+}

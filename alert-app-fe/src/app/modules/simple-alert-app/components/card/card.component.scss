@@ -1,0 +1,56 @@
+@use "../../../../../styles.scss" as vars;
+
+.card {
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid none;
+  border-radius: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 25px 35px;
+  color: #fff;
+  font-weight: vars.$font-weight-normal;
+  font-size: vars.$font-size-large;
+  &__right {
+    font-size: vars.$font-size-extra-large;
+  }
+  &__left {
+    text-transform: capitalize;
+    &__more {
+      font-size: vars.$font-size-small;
+      color: vars.$secondary-color;
+      text-transform: lowercase;
+    }
+  }
+  &__mini {
+    width: 120px;
+    height: 100px;
+    border: 1px solid none;
+    border-radius: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    color: #fff;
+    font-weight: vars.$font-weight-normal;
+    font-size: vars.$font-size-large;
+    &__top {
+      font-size: vars.$font-size-extra-large;
+      &__county {
+        color: vars.$primary-color;
+        font-size: vars.$font-size-small;
+        text-transform: capitalize;
+      }
+    }
+    &__bottom {
+      font-size: vars.$font-size-small;
+      color: vars.$accent-color;
+    }
+  }
+}
+p {
+  margin: 0;
+}

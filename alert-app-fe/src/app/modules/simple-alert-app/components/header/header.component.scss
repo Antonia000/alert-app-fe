@@ -2,18 +2,93 @@
 .app {
   &__header {
     display: flex;
-    justify-content: flex-end;
-    padding: 5px 80px;
-    gap: 30px;
+    justify-content: space-between;
+    padding: 5px 35px;
     color: vars.$primary-color;
     border-bottom: 2px solid vars.$border-color;
+
     &__icon {
       display: flex;
       align-items: center;
+      margin-right: 70px;
       img {
         width: 65px;
         height: 60px;
       }
+      a {
+        color: vars.$primary-color;
+        font-size: vars.$font-size-small;
+      }
+    }
+    &__inline {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      &__text {
+        font-size: vars.$font-size-small;
+        margin-right: 10px;
+      }
+      &__bold {
+        font-weight: vars.$font-weight-bold;
+        margin-right: 5px;
+      }
+      &__button {
+        color: vars.$primary-color;
+        background-color: transparent;
+        border: none;
+        font-weight: vars.$font-weight-bold;
+        padding: 5px;
+        cursor: pointer;
+      }
+      &__button:focus {
+        color: vars.$secondary-color;
+      }
     }
   }
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  color: vars.$primary-color;
+  background-color: #fff;
+  border: 1px solid vars.$border-color;
+  font-size: vars.$font-size-small;
+  cursor: pointer;
+  padding: 0 15px;
+}
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: 10em;
+  height: 3em;
+  border: 1px solid vars.$border-color;
+  border-radius: 0.8em;
+  color: #fff;
+}
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.7em;
+  color: vars.$primary-color;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after {
+  color: vars.$primary-color;
 }
