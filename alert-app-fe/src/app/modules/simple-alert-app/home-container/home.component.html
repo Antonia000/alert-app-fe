@@ -11,11 +11,13 @@
         [county]="forecast.oras"
         [title]="forecast.nebulozitate"
         [text]="forecast.temperatura"
-        [background]="'../../../../assets/img/card-bg.jpg'"
+        [background]="forecast.img"
       ></app-card>
-      <a [routerLink]="['/avertizari-meteo']"
-        >vezi vremea în <b>orasul tău</b>
-      </a>
+      <div class="container__weather__forecasts__link">
+        <a [routerLink]="['/avertizari-meteo']"
+          >vezi vremea în <b>orasul tău</b>
+        </a>
+      </div>
     </div>
   </div>
   <div
@@ -30,10 +32,12 @@
     <app-no-data-card
       *ngIf="nowcastAlerts.length === 0"
       [text]="'In ultima ora'"
-      [title]="'Nu exista alerte emise'"
+      [title]="'Nu există alerte emise'"
     ></app-no-data-card>
-    <a *ngIf="nowcastAlerts.length > 0" [routerLink]="['/avertizari-meteo']"
-      >vezi avertizări în <b>județul tău</b>
-    </a>
+    <div class="container__nowcast__link">
+      <a *ngIf="nowcastAlerts.length > 0" [routerLink]="['/avertizari-meteo']"
+        >vezi avertizări în <b>județul tău</b>
+      </a>
+    </div>
   </div>
 </div>

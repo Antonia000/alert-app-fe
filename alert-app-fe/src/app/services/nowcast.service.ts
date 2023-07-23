@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { NowcastAlert } from '../models/nowcast-alert.model';
 
@@ -21,7 +21,7 @@ export class NowcastService {
     return this.http.get<NowcastAlert[]>('/api' + '/nowcast/' + county).pipe(
       catchError(() => {
         new Error('Error while fetching the nowcasting alerts by county!');
-        return of([]);
+        return of();
       })
     );
   }

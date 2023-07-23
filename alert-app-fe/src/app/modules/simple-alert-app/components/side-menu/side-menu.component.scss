@@ -1,13 +1,14 @@
 @use "../../../../../styles.scss" as vars;
 
 .sidenav {
-  width: 80px;
+  width: 60px;
   background-color: vars.$primary-color;
   transition: 0.5s;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 10px;
 
   &__expanded {
     display: flex;
@@ -15,64 +16,87 @@
     justify-content: flex-start;
     width: 250px;
     padding: 0 10px;
-
-    &__link {
-      text-align: left;
-    }
-    &__button {
-      margin-top: 40px;
-      padding-right: 30px;
-      width: 100%;
-      cursor: pointer;
-      background-color: transparent;
-      border: none;
-      text-align: right;
-      img {
-        width: 25px;
-      }
-    }
-    &__bottom {
-      width: 100%;
-      margin-top: 15em;
-    }
   }
 
-  &__content {
-    &__logo {
-      display: block;
+  &__logo {
+    height: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    &__img {
       width: 60px;
-      margin: auto;
+    }
 
-      &__expanded {
+    &__expanded {
+      &__img {
         display: block;
         width: 200px;
       }
+      &__button {
+        margin-top: 40px;
+        padding-right: 20px;
+        width: 100%;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        text-align: right;
+        img {
+          width: 25px;
+        }
+      }
     }
     &__button {
-      margin-top: 40px;
-      display: block;
       cursor: pointer;
       background-color: transparent;
       border: none;
+      width: 100%;
 
-      * {
+      img {
         width: 25px;
         height: 25px;
         text-align: center;
       }
     }
+  }
+  &__nav {
+    height: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__expanded {
+      &__bottom {
+        width: 100%;
+        height: 30%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    &__links {
+      height: 40%;
+      gap: 10%;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      align-items: center;
+    }
+    &__bottom {
+      height: 30%;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-end;
+    }
     &__link {
+      width: 100%;
       text-decoration: none;
       font-size: vars.$font-size-small;
       color: #fff;
       transition: 0.3s;
       text-align: center;
+
       span {
         margin-left: 12px;
       }
-    }
-    &__bottom {
-      margin-top: 15em;
     }
   }
 }
@@ -82,10 +106,12 @@
   text-decoration: none;
   font-size: vars.$font-size-small;
   color: #fff;
-  display: block;
-  transition: 0.3s;
+  display: flex;
+  align-items: flex-end;
+
   span {
     margin-left: 12px;
+    line-height: vars.$font-size-small;
   }
 }
 

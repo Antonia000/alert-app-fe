@@ -4,83 +4,93 @@
     sidenav__expanded: sideMenuOpen === true
   }"
 >
-  <!--Expand button-->
-  <button
-    [ngClass]="{
-      sidenav__content__button: sideMenuOpen === false,
-      sidenav__expanded__button: sideMenuOpen === true
-    }"
-    (click)="handleMenuState()"
-  >
+  <div class="sidenav__logo">
+    <!--Expand button-->
+    <button
+      [ngClass]="{
+        sidenav__logo__button: sideMenuOpen === false,
+        sidenav__logo__expanded__button: sideMenuOpen === true
+      }"
+      (click)="handleMenuState()"
+    >
+      <img
+        *ngIf="!sideMenuOpen"
+        src="../../../../../assets/img/expand-icon.svg"
+      />
+      <img
+        *ngIf="sideMenuOpen"
+        src="../../../../../assets/img/shrink-icon.svg"
+      />
+    </button>
+
+    <!--Logo-->
     <img
       *ngIf="!sideMenuOpen"
-      src="../../../../../assets/img/expand-icon.svg"
+      class="sidenav__logo__img"
+      src="../../../../../assets/logo/logo-black-mini.svg"
     />
-    <img *ngIf="sideMenuOpen" src="../../../../../assets/img/shrink-icon.svg" />
-  </button>
+    <img
+      *ngIf="sideMenuOpen"
+      class="sidenav__logo__expanded__img"
+      src="../../../../../assets/logo/logo-black.svg"
+    />
+  </div>
 
-  <!--Logo-->
-  <img
-    *ngIf="!sideMenuOpen"
-    class="sidenav__content__logo"
-    src="../../../../../assets/logo/logo-black-mini.svg"
-  />
-  <img
-    *ngIf="sideMenuOpen"
-    class="sidenav__content__logo__expanded"
-    src="../../../../../assets/logo/logo-black.svg"
-  />
+  <!--Nav items-->
+  <div class="sidenav__nav">
+    <div class="sidenav__nav__links">
+      <a
+        href="acasa"
+        [ngClass]="{
+          sidenav__nav__link: sideMenuOpen === false,
+          sidenav__nav__expanded__link: sideMenuOpen === true
+        }"
+        ><img src="../../../../../assets/img/home-icon.svg" /><span
+          *ngIf="sideMenuOpen"
+          >Acasa</span
+        ></a
+      >
+      <a
+        href="avertizari-meteo"
+        [ngClass]="{
+          sidenav__nav__link: sideMenuOpen === false,
+          sidenav__nav__expanded__link: sideMenuOpen === true
+        }"
+        ><img src="../../../../../assets/img/cloud-icon.svg" /><span
+          *ngIf="sideMenuOpen"
+          >Alerte meteo</span
+        ></a
+      >
+      <a
+        href="horoscop"
+        [ngClass]="{
+          sidenav__nav__link: sideMenuOpen === false,
+          sidenav__nav__expanded__link: sideMenuOpen === true
+        }"
+        ><img src="../../../../../assets/img/horoscope-icon.svg" /><span
+          *ngIf="sideMenuOpen"
+          >Horoscop</span
+        ></a
+      >
+    </div>
 
-  <!--Nav items button-->
-  <a
-    href="acasa"
-    [ngClass]="{
-      sidenav__content__link: sideMenuOpen === false,
-      sidenav__expanded__link: sideMenuOpen === true
-    }"
-    ><img src="../../../../../assets/img/home-icon.svg" /><span
-      *ngIf="sideMenuOpen"
-      >Acasa</span
-    ></a
-  >
-  <a
-    href="avertizari-meteo"
-    [ngClass]="{
-      sidenav__content__link: sideMenuOpen === false,
-      sidenav__expanded__link: sideMenuOpen === true
-    }"
-    ><img src="../../../../../assets/img/cloud-icon.svg" /><span
-      *ngIf="sideMenuOpen"
-      >Alerte meteo</span
-    ></a
-  >
-  <a
-    href="horoscop"
-    [ngClass]="{
-      sidenav__content__link: sideMenuOpen === false,
-      sidenav__expanded__link: sideMenuOpen === true
-    }"
-    ><img src="../../../../../assets/img/horoscope-icon.svg" /><span
-      *ngIf="sideMenuOpen"
-      >Horoscop</span
-    ></a
-  >
-  <div
-    [ngClass]="{
-      sidenav__content__bottom: sideMenuOpen === false,
-      sidenav__expanded__bottom: sideMenuOpen === true
-    }"
-  >
-    <a
-      href="#"
+    <div
       [ngClass]="{
-        sidenav__content__link: sideMenuOpen === false,
-        sidenav__expanded__link: sideMenuOpen === true
+        sidenav__nav__bottom: sideMenuOpen === false,
+        sidenav__nav__expanded__bottom: sideMenuOpen === true
       }"
-      ><img src="../../../../../assets/img/info-logo.svg" /><span
-        *ngIf="sideMenuOpen"
-        >Info</span
-      ></a
     >
+      <a
+        href="#"
+        [ngClass]="{
+          sidenav__nav__link: sideMenuOpen === false,
+          sidenav__nav__expanded__link: sideMenuOpen === true
+        }"
+        ><img src="../../../../../assets/img/info-logo.svg" /><span
+          *ngIf="sideMenuOpen"
+          >Info</span
+        ></a
+      >
+    </div>
   </div>
 </div>

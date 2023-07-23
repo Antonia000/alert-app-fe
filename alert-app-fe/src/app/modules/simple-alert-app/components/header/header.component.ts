@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export interface TempWidget {
   temp: string | null;
   city: string | null;
@@ -11,6 +11,8 @@ export interface TempWidget {
 export class HeaderComponent implements OnInit {
   @Input() hasSelect: boolean = false;
   @Input() temperatureWidget: TempWidget = { temp: null, city: null };
+  @Input() cities: string[] = [];
+  @Output() selectedCity: EventEmitter<string> = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}
@@ -19,6 +21,6 @@ export class HeaderComponent implements OnInit {
   }
 
   handleSelectedCounty(selected: string) {
-    console.log(selected);
+    this.selectedCity.emit(selected);
   }
 }

@@ -3,6 +3,7 @@
     <p class="container__weather__title">Vremea în {{ selectedCity }}</p>
     <div class="container__weather__forecasts">
       <app-card
+        *ngIf="weatherForecast$ | async as weatherForecast"
         [county]="weatherForecast.oras"
         [title]="weatherForecast.nebulozitate"
         [text]="weatherForecast.temperatura"
@@ -14,9 +15,24 @@
       ></app-card>
     </div>
   </div>
-  <div class="container__nowcast">
-    <p class="container__nowcast__title">Alerte active în {{ selectedCity }}</p>
-    <app-alert-section [alerts]="nowcastMock"></app-alert-section>
-    <a [routerLink]="['/acasa']">vezi avertizări în <b>toată țara</b> </a>
+  <div
+    class="container__nowcast"
+    *ngIf="nowcastAlerts$ | async as nowcastAlerts"
+  >
+    <p class="container__nowcast__title">Alerte active în România</p>
+    <app-alert-section
+      *ngIf="nowcastAlerts.length > 0"
+      [alerts]="nowcastAlerts"
+    ></app-alert-section>
+    <app-no-data-card
+      *ngIf="nowcastAlerts.length === 0"
+      [text]="'In ultima ora'"
+      [title]="'Nu există alerte emise'"
+    ></app-no-data-card>
+    <div class="container__nowcast__link">
+      <a *ngIf="nowcastAlerts.length > 0" [routerLink]="['/avertizari-meteo']"
+        >vezi avertizări în <b>județul tău</b>
+      </a>
+    </div>
   </div>
 </div>

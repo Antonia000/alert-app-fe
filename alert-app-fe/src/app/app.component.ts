@@ -5,6 +5,7 @@ import {
   NavigationStart,
   Router,
 } from '@angular/router';
+import { cities } from './helpers/cities.helper';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +15,7 @@ export class AppComponent {
   title = 'alert-app-fe';
   currentRoute: string;
   headerHasSelect: boolean = false;
+  cities = cities;
 
   constructor(private router: Router) {
     this.currentRoute = '';
@@ -40,5 +42,8 @@ export class AppComponent {
         console.log(event.error);
       }
     });
+  }
+  handleSelectedCity(selectedCity: string) {
+    console.log(selectedCity);
   }
 }

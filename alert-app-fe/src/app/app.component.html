@@ -4,6 +4,8 @@
     <app-header
       class="app__content__header"
       [hasSelect]="headerHasSelect"
+      [cities]="cities"
+      (selectedCity)="handleSelectedCity($event)"
     ></app-header>
     <div class="app__content__body">
       <router-outlet></router-outlet>

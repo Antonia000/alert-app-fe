@@ -6,41 +6,60 @@
   width: 100%;
 
   &__weather {
-    width: 40%;
+    width: 45%;
     margin: 20px 0;
+    cursor: default;
     &__title {
       color: vars.$primary-color;
       font-weight: vars.$font-weight-normal;
       font-size: vars.$font-size-title;
       margin-bottom: 12px;
     }
+
     &__forecasts {
-      width: 100%;
-      a {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      &__link {
         width: 100%;
-        color: vars.$primary-color;
-        font-size: vars.$font-size-small;
-        text-align: right;
-        padding-top: 10px;
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+          color: vars.$primary-color;
+          font-size: vars.$font-size-small;
+          text-align: right;
+          padding-top: 10px;
+        }
       }
     }
   }
   &__nowcast {
-    display: flex;
     flex-wrap: wrap;
-    width: 40%;
+    width: 45%;
     margin: 20px 0;
-    a {
+    cursor: default;
+
+    &__link {
       width: 100%;
-      color: vars.$primary-color;
-      font-size: vars.$font-size-small;
-      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+
+      a {
+        color: vars.$primary-color;
+        font-size: vars.$font-size-small;
+        text-align: right;
+      }
     }
+
     &__title {
       color: vars.$primary-color;
       font-weight: vars.$font-weight-normal;
       font-size: vars.$font-size-title;
       margin-bottom: 12px;
+    }
+    * {
+      width: 100%;
     }
   }
 }

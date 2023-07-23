@@ -6,8 +6,9 @@
   width: 100%;
 
   &__weather {
-    width: 40%;
+    width: 45%;
     margin: 20px 0;
+    cursor: default;
     &__title {
       color: vars.$primary-color;
       font-weight: vars.$font-weight-normal;
@@ -19,24 +20,38 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      a {
+      &__link {
         width: 100%;
-        color: vars.$primary-color;
-        font-size: vars.$font-size-small;
-        text-align: right;
-        padding-top: 10px;
+        display: flex;
+        justify-content: flex-end;
+
+        a {
+          color: vars.$primary-color;
+          font-size: vars.$font-size-small;
+          text-align: right;
+          padding-top: 10px;
+        }
       }
     }
   }
   &__nowcast {
     flex-wrap: wrap;
-    width: 40%;
+    width: 45%;
     margin: 20px 0;
-    a {
-      color: vars.$primary-color;
-      font-size: vars.$font-size-small;
-      text-align: right;
+    cursor: default;
+
+    &__link {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+
+      a {
+        color: vars.$primary-color;
+        font-size: vars.$font-size-small;
+        text-align: right;
+      }
     }
+
     &__title {
       color: vars.$primary-color;
       font-weight: vars.$font-weight-normal;

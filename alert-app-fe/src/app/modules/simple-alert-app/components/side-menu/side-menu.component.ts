@@ -10,7 +10,9 @@ export class SideMenuComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sideMenuOpen = true;
+  }
 
   handleMenuState() {
     this.sideMenuOpen = !this.sideMenuOpen;
