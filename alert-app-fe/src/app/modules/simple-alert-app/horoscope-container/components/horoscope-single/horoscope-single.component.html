@@ -1,0 +1,23 @@
+<div class="container" *ngIf="signName$ | async as signName">
+  <div class="container__title">
+    <p class="container__title__title">Horoscop {{ signName }}</p>
+    <p class="container__title__subtitle">astăzi, {{ date }}</p>
+  </div>
+  <div class="container__horoscope" *ngIf="sign$ | async as sign">
+    <div class="container__horoscope__sign">
+      <div class="container__horoscope__sign__bg">
+        <div
+          class="sign"
+          [ngStyle]="{
+            'background-image':
+              'url(' +
+              '../../../../../../assets/img/horoscope/' +
+              signName +
+              '.png)'
+          }"
+        ></div>
+      </div>
+    </div>
+    <p class="container__horoscope__text">{{ sign.ro_data }}</p>
+  </div>
+</div>

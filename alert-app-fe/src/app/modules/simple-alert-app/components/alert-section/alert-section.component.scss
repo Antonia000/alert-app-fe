@@ -26,9 +26,12 @@
       flex-wrap: nowrap;
       justify-content: center;
       white-space: nowrap;
-      width: 75%;
+      width: 70%;
     }
     &__county {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
       margin: 0;
       font-size: vars.$font-size-small;
       font-weight: vars.$font-weight-normal;
@@ -39,7 +42,7 @@
       flex-wrap: wrap;
       align-items: center;
       text-align: center;
-      width: 25%;
+      width: 30%;
       color: vars.$primary-color;
       font-size: vars.$font-size-small;
       font-weight: vars.$font-weight-normal;
@@ -71,6 +74,7 @@
     vars.$extreme-weather-fade
   );
   color: vars.$extreme-weather;
+  font-size: vars.$font-size-title;
 }
 .portocaliu {
   border-left: 10px solid vars.$severe-weather;

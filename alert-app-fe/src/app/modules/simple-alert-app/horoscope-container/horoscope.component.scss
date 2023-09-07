@@ -1,0 +1,37 @@
+@use "../../../../styles.scss" as vars;
+.container {
+  width: 100%;
+  min-height: 100vh;
+  margin: 20px 0;
+  &__card {
+    cursor: pointer;
+    width: 20%;
+    height: 250px;
+    margin: 0 40px 60px 0;
+  }
+  &__card:hover {
+    transform: scale(1.1);
+    transition: transform 1s ease-in-out;
+  }
+  &__title {
+    width: 100%;
+    color: vars.$primary-color;
+    font-weight: vars.$font-weight-normal;
+    font-size: vars.$font-size-title;
+    margin-bottom: 18px;
+    &__title {
+      margin-bottom: 2px;
+    }
+    &__subtitle {
+      color: vars.$secondary-color;
+      font-weight: vars.$font-weight-normal;
+      font-size: vars.$font-size-small;
+      margin: 0;
+    }
+  }
+  &__horoscope {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

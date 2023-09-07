@@ -10,17 +10,19 @@ import { HomeContainerModule } from './modules/simple-alert-app/home-container/h
 import { NowcastService } from './services/nowcast.service';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './services/weather.service';
+import { HoroscopeModule } from './modules/simple-alert-app/horoscope-container/horoscope.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     HomeContainerModule,
     HeaderModule,
     SideMenuModule,
     AlertContainerModule,
-    HttpClientModule,
+    HoroscopeModule,
   ],
   providers: [NowcastService, WeatherService],
   bootstrap: [AppComponent],

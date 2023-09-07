@@ -1,5 +1,3 @@
-import { AlertType } from './alert-type.enum';
-
 export interface NowcastAlert {
   tipMesaj: string;
   numeTipMesaj: string;

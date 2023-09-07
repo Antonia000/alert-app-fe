@@ -2,11 +2,26 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeContainerComponent } from './modules/simple-alert-app/home-container/home.component';
 import { AlertContainerComponent } from './modules/simple-alert-app/alert-container/alert-container.component';
+import { HoroscopeContainerComponent } from './modules/simple-alert-app/horoscope-container/horoscope.component';
+import { HoroscopeSingleComponent } from './modules/simple-alert-app/horoscope-container/components/horoscope-single/horoscope-single.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'acasa', pathMatch: 'full' },
   { path: 'acasa', component: HomeContainerComponent },
-  { path: 'avertizari-meteo', component: AlertContainerComponent },
-  { path: 'horoscop', component: HomeContainerComponent },
+  {
+    path: 'avertizari-meteo',
+    redirectTo: 'avertizari-meteo/bucuresti-baneasa',
+    pathMatch: 'full',
+  },
+  { path: 'avertizari-meteo/:oras', component: AlertContainerComponent },
+  {
+    path: 'horoscop',
+    component: HoroscopeContainerComponent,
+  },
+  {
+    path: 'horoscop/:sign',
+    component: HoroscopeSingleComponent,
+  },
 ];
 
 @NgModule({

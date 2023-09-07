@@ -27,5 +27,4 @@ export class NowcastService {
   }
 }
 
-//
 //https://www.google.com/recaptcha/admin/create

@@ -1,28 +1,33 @@
 .app {
-  display: flex;
   height: 100%;
 
-  &__side__nav {
-    display: block;
-    width: 5%;
+  &__side__menu {
+    width: 20%;
+    height: 100%;
+    position: fixed;
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 95%;
+
     &__header {
       width: 100%;
       padding: 0;
     }
     &__body {
       padding: 0 35px;
-      min-height: 90%;
       background-image: url("../assets/img/app-background.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
     }
   }
+}
+.extended {
+  margin-left: 18%;
+}
+.unextended {
+  margin-left: 5%;
 }

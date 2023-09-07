@@ -9,7 +9,7 @@
     *ngFor="let alert of mappedAlerts"
   >
     <div class="container__alert__title">
-      <p *ngIf="alert?.judet" class="container__alert__county">
+      <p *ngIf="alert?.judet != ''" class="container__alert__county">
         {{ alert.judet }}
       </p>
       <p class="container__alert__type">

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container__weather">
-    <p class="container__weather__title">Vremea în {{ selectedCity }}</p>
+    <p class="container__weather__title">Vremea în {{ displayedCity }}</p>
     <div class="container__weather__forecasts">
       <app-card
         *ngIf="weatherForecast$ | async as weatherForecast"
@@ -19,18 +19,17 @@
     class="container__nowcast"
     *ngIf="nowcastAlerts$ | async as nowcastAlerts"
   >
-    <p class="container__nowcast__title">Alerte active în România</p>
-    <app-alert-section
-      *ngIf="nowcastAlerts.length > 0"
-      [alerts]="nowcastAlerts"
-    ></app-alert-section>
+    <p class="container__nowcast__title">
+      Alerte active în {{ displayedCity }}
+    </p>
+    <app-alert-section [alerts]="nowcastAlerts"></app-alert-section>
     <app-no-data-card
       *ngIf="nowcastAlerts.length === 0"
       [text]="'In ultima ora'"
       [title]="'Nu există alerte emise'"
     ></app-no-data-card>
     <div class="container__nowcast__link">
-      <a *ngIf="nowcastAlerts.length > 0" [routerLink]="['/avertizari-meteo']"
+      <a *ngIf="nowcastAlerts.length" [routerLink]="['/avertizari-meteo']"
         >vezi avertizări în <b>județul tău</b>
       </a>
     </div>

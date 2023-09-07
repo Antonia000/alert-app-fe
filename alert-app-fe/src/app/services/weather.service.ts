@@ -8,6 +8,7 @@ import { determineWeatherCardImg } from '../helpers/determine-weather-img.helper
 @Injectable({ providedIn: 'root' })
 export class WeatherService {
   BASE_URL: string = environment.be;
+  selectedCity: string = 'bucuresti-baneasa';
   constructor(private readonly http: HttpClient) {}
 
   getFirstWeatherForecasts(length: number): Observable<WeatherForecast[]> {
@@ -30,12 +31,21 @@ export class WeatherService {
     );
   }
   getWeatherByCity(city: string): Observable<WeatherForecast> {
+    this.selectedCity = city;
+    if (this.selectedCity !== 'bucuresti-baneasa') {
+      localStorage.setItem('selectedCity', city);
+    }
     return this.http.get<WeatherForecast>('/api' + '/weather/' + city).pipe(
       catchError(() => {
         new Error('Error while fetching the weather forecasts!');
         return of();
       })
     );
+  }
+
+  getSelectedCity() {
+    console.log(this.selectedCity);
+    return this.selectedCity ?? 'bucuresti-baneasa';
   }
 }
 

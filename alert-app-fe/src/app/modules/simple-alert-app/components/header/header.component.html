@@ -1,47 +1,51 @@
 <div class="app__header">
-  <div class="app__header__inline">
-    <span *ngIf="hasSelect" class="app__header__inline__text"
-      >Selecteaza oras:
-    </span>
-    <div *ngIf="hasSelect" class="select">
-      <select #counties (change)="handleSelectedCounty(counties.value)">
+  <div class="app__header__select">
+    <p *ngIf="hasSelect">Selecteaza oras</p>
+    <div *ngIf="hasSelect" class="app__header__select__input">
+      <select
+        #counties
+        (change)="handleSelectedCounty(counties.value)"
+        [value]="handleCustomValue(temperatureWidget?.city ?? '')"
+      >
         <option *ngFor="let city of cities" value="{{ city }}">
           {{ city }}
         </option>
       </select>
     </div>
   </div>
-  <div class="app__header__inline">
-    <div class="app__header__icon">
-      <img src="../../../../../assets/img/header-icon-cloud.png" />
-      <a
-        [routerLink]="'/avertizari-meteo'"
-        *ngIf="!temperatureWidget.temp"
-        class="app__header__inline__text"
-        >vezi vremea în <b>orasul tău</b></a
-      >
-      <span *ngIf="temperatureWidget.temp" class="app__header__inline__bold"
-        >{{ temperatureWidget.temp }}&deg;C
-      </span>
-      <span *ngIf="temperatureWidget.city" class="app__header__inline__text">
-        astazi in {{ temperatureWidget.city }}
-      </span>
-    </div>
+  <div>
+    <div class="app__header__inline">
+      <div class="app__header__icon">
+        <img src="../../../../../assets/img/header-icon-cloud.png" />
+        <a
+          [routerLink]="'/avertizari-meteo/bucuresti-baneasa'"
+          *ngIf="temperatureWidget === null"
+          class="app__header__inline__text"
+          >vezi vremea în <b>orasul tău</b></a
+        >
+        <span *ngIf="temperatureWidget" class="app__header__inline__bold"
+          >{{ temperatureWidget.temp }}&deg;C
+        </span>
+        <span *ngIf="temperatureWidget" class="app__header__inline__text">
+          astazi in {{ temperatureWidget.city }}
+        </span>
+      </div>
 
-    <div>
-      <button
-        class="app__header__inline__button"
-        (click)="handleTranslate('ro')"
-      >
-        RO
-      </button>
-      /
-      <button
-        class="app__header__inline__button"
-        (click)="handleTranslate('en')"
-      >
-        EN
-      </button>
+      <div>
+        <button
+          class="app__header__inline__button"
+          (click)="handleTranslate('ro')"
+        >
+          RO
+        </button>
+        /
+        <button
+          class="app__header__inline__button"
+          (click)="handleTranslate('en')"
+        >
+          EN
+        </button>
+      </div>
     </div>
   </div>
 </div>

@@ -5,7 +5,10 @@ import {
   NavigationStart,
   Router,
 } from '@angular/router';
-import { cities } from './helpers/cities.helper';
+import { WeatherService } from './services/weather.service';
+import { Observable, catchError, filter, map, of, tap } from 'rxjs';
+import { TempWidget } from './modules/simple-alert-app/components/header/header.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,35 +18,60 @@ export class AppComponent {
   title = 'alert-app-fe';
   currentRoute: string;
   headerHasSelect: boolean = false;
-  cities = cities;
+  selectedCityWeather$: Observable<TempWidget | null> = of(null);
+  selectedCity: string = 'bucuresti-baneasa';
+  sideMenuState: string = 'extended';
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private readonly weatherService: WeatherService
+  ) {
     this.currentRoute = '';
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         // Show progress spinner or progress bar
-        console.log('Route change detected');
+        // console.log('Route change detected');
       }
 
       if (event instanceof NavigationEnd) {
-        // Hide progress spinner or progress bar
         this.currentRoute = event.url;
-        if (this.currentRoute === '/avertizari-meteo') {
+        if (this.currentRoute.includes('/avertizari-meteo')) {
+          this.selectedCity = this.router.url?.split('/')[2];
+          this.selectedCityWeather$ = this.weatherService
+            .getWeatherByCity(this.selectedCity)
+            .pipe(
+              catchError((err) => {
+                return of(err);
+              }),
+              filter((city) => !!city),
+              map((weatherForecast) => ({
+                temp: weatherForecast.temperatura,
+                city: weatherForecast.oras.replace('-', ' '),
+              }))
+            );
+
           this.headerHasSelect = true;
         } else {
           this.headerHasSelect = false;
         }
       }
-
-      if (event instanceof NavigationError) {
-        // Hide progress spinner or progress bar
-
-        // Present error to user
-        console.log(event.error);
-      }
     });
   }
   handleSelectedCity(selectedCity: string) {
-    console.log(selectedCity);
+    this.selectedCity = selectedCity;
+    this.selectedCityWeather$ = this.weatherService
+      .getWeatherByCity(selectedCity)
+      .pipe(
+        filter((city) => !!city),
+        map((weatherForecast) => ({
+          temp: weatherForecast.temperatura,
+          city: weatherForecast.oras.replace('-', ' '),
+        }))
+      );
+    this.router.navigate(['/avertizari-meteo/' + selectedCity]);
+  }
+
+  handleSideMenuState(value: string) {
+    this.sideMenuState = value;
   }
 }

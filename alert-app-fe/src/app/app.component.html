@@ -1,10 +1,13 @@
 <div class="app">
-  <app-side-menu class="app__side__menu"></app-side-menu>
-  <div class="app__content">
+  <app-side-menu
+    class="app__side__menu"
+    (sideMenuStateChanged)="handleSideMenuState($event)"
+  ></app-side-menu>
+  <div class="app__content" [ngClass]="this.sideMenuState">
     <app-header
       class="app__content__header"
       [hasSelect]="headerHasSelect"
-      [cities]="cities"
+      [temperatureWidget]="(selectedCityWeather$ | async)!"
       (selectedCity)="handleSelectedCity($event)"
     ></app-header>
     <div class="app__content__body">

@@ -1,30 +1,53 @@
 <div class="container">
-  <div class="container__weather">
-    <p class="container__weather__title">Vremea în România</p>
+  <div class="container__column">
+    <div class="container__column__weather">
+      <p class="container__column__weather__title">Vremea în România</p>
+      <div
+        *ngIf="weatherForecast$ | async as weatherForecasts"
+        class="container__column__weather__forecasts"
+      >
+        <app-card
+          *ngFor="let forecast of weatherForecasts"
+          [isMini]="true"
+          [county]="forecast.oras"
+          [title]="forecast.nebulozitate"
+          [text]="forecast.temperatura"
+          [background]="forecast.img"
+        ></app-card>
+        <div class="container__column__weather__forecasts__link">
+          <a [routerLink]="['/avertizari-meteo']"
+            >vezi vremea în <b>orasul tău</b>
+          </a>
+        </div>
+      </div>
+    </div>
     <div
-      *ngIf="weatherForecast$ | async as weatherForecasts"
-      class="container__weather__forecasts"
+      class="container__column__general"
+      *ngIf="generalAlerts$ | async as generalAlerts"
     >
-      <app-card
-        *ngFor="let forecast of weatherForecasts"
-        [isMini]="true"
-        [county]="forecast.oras"
-        [title]="forecast.nebulozitate"
-        [text]="forecast.temperatura"
-        [background]="forecast.img"
-      ></app-card>
-      <div class="container__weather__forecasts__link">
-        <a [routerLink]="['/avertizari-meteo']"
-          >vezi vremea în <b>orasul tău</b>
+      <p class="container__column__general__title">Alte Alerte În România</p>
+      <app-alert-section
+        *ngIf="generalAlerts.length > 0"
+        [alerts]="generalAlerts"
+      ></app-alert-section>
+      <app-no-data-card
+        *ngIf="generalAlerts.length === 0"
+        [text]="'In ultima ora'"
+        [title]="'Nu există alerte emise'"
+      ></app-no-data-card>
+      <div class="container__column__general__link">
+        <a *ngIf="generalAlerts.length > 0" [routerLink]="['/avertizari-meteo']"
+          >vezi avertizări în <b>județul tău</b>
         </a>
       </div>
     </div>
   </div>
+
   <div
     class="container__nowcast"
     *ngIf="nowcastAlerts$ | async as nowcastAlerts"
   >
-    <p class="container__nowcast__title">Alerte active în România</p>
+    <p class="container__nowcast__title">Alerte Nowcast Active în România</p>
     <app-alert-section
       *ngIf="nowcastAlerts.length > 0"
       [alerts]="nowcastAlerts"

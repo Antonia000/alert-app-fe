@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card__sign">
+    <div
+      class="sign"
+      [ngStyle]="{
+        'background-image':
+          'url(' + '../../../../../assets/img/horoscope/' + sign + '.png)'
+      }"
+    ></div>
+  </div>
+
+  <div class="card__text">
+    <p class="card__text__title">{{ title }}</p>
+    <p class="card__text__info">{{ text }}</p>
+  </div>
+</div>

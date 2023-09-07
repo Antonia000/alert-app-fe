@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { removeAccentString } from 'src/app/helpers/accents.helper';
 import { counties } from 'src/app/helpers/ro-counties.helper';
 import { AlertType } from 'src/app/models/alert-type.enum';
+import { GeneralAlert } from 'src/app/models/general-alert.model';
 import {
   NowcastAlert,
   NowcastAlertMap,
@@ -14,7 +16,7 @@ import {
 })
 export class AlertSectionComponent {
   @Input() title: string = '';
-  @Input() alerts: NowcastAlert[] = [];
+  @Input() alerts: GeneralAlert[] = [];
   mappedAlerts: NowcastAlertMap[] = [];
   alertType = AlertType;
 
@@ -34,15 +36,17 @@ export class AlertSectionComponent {
         case 'galben':
           culoare = AlertType.galben;
           break;
-        case 'Papayas':
+        case 'rosu':
           culoare = AlertType.rosu;
           break;
         default:
           culoare = AlertType.galben;
       }
-      const durata: string = `${alert.dataInceput.split('T')[1]} - ${
-        alert.dataSfarsit.split('T')[1]
-      }`;
+      const durata: string = alert.dataInceput.includes('T')
+        ? `${alert.dataInceput.split('T')[1]} - ${
+            alert.dataSfarsit.split('T')[1]
+          }`
+        : '';
       const data: string = new Date(
         `${alert.dataSfarsit.split('T')[0]}`
       ).toDateString();
@@ -56,10 +60,13 @@ export class AlertSectionComponent {
             zona.includes(removeAccentString(county))
           );
         }
-
-        return theCounties.length > 1
-          ? `Judetele ${theCounties.map((county) => county)}`
-          : `Judetul ${theCounties}`;
+        if (theCounties.length > 0) {
+          return theCounties.length > 1
+            ? `Judetele ${theCounties.map((county) => county)}`
+            : `Judetul ${theCounties}`;
+        } else {
+          return '';
+        }
       };
       const judet = customLogicForJudet();
 
