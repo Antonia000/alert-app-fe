@@ -20,7 +20,7 @@
     *ngIf="nowcastAlerts$ | async as nowcastAlerts"
   >
     <p class="container__nowcast__title">
-      Alerte active în {{ displayedCity }}
+      Alerte Nowcast Active în {{ displayedCity }}
     </p>
     <app-alert-section [alerts]="nowcastAlerts"></app-alert-section>
     <app-no-data-card

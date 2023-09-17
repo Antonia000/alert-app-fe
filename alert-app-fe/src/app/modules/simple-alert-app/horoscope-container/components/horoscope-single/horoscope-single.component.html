@@ -1,9 +1,9 @@
-<div class="container" *ngIf="signName$ | async as signName">
+<div class="container" *ngIf="sign$ | async as sign">
   <div class="container__title">
-    <p class="container__title__title">Horoscop {{ signName }}</p>
-    <p class="container__title__subtitle">astăzi, {{ date }}</p>
+    <p class="container__title__title">Horoscop {{ sign.sign }}</p>
+    <p class="container__title__subtitle">astăzi, {{ sign.date }}</p>
   </div>
-  <div class="container__horoscope" *ngIf="sign$ | async as sign">
+  <div class="container__horoscope">
     <div class="container__horoscope__sign">
       <div class="container__horoscope__sign__bg">
         <div
@@ -12,7 +12,7 @@
             'background-image':
               'url(' +
               '../../../../../../assets/img/horoscope/' +
-              signName +
+              sign.sign +
               '.png)'
           }"
         ></div>

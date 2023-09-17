@@ -19,10 +19,10 @@ export class HoroscopeContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const day = new Date().getDay();
-    const month = new Date().toLocaleString('default', { month: 'short' });
-    const year = new Date().getFullYear();
-    this.date = `${day} ${month} ${year}`;
+    // const day = new Date().getDay();
+    // const month = new Date().toLocaleString('default', { month: 'short' });
+    // const year = new Date().getFullYear();
+    // this.date = `${day} ${month} ${year}`;
     this.signs$ = this.horoscopeService.getHoroscope().pipe(
       filter((data) => !!data),
       map((data: HoroscopeDto[]) => {
@@ -33,6 +33,7 @@ export class HoroscopeContainerComponent implements OnInit {
             title: item.sign.toLocaleUpperCase(),
             ro_data: item.ro_data,
             data: item.data,
+            date: item.date,
           }));
       })
     );

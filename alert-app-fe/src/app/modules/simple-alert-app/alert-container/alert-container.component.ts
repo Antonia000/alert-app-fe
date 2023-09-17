@@ -51,6 +51,7 @@ export class AlertContainerComponent implements OnInit {
         CitiesToCouties[this.selectedCity as keyof typeof CitiesToCouties]
       );
     });
+    this.router.navigate(['/avertizari-meteo/' + this.selectedCity]);
   }
 
   private formatDisplayedCity(city: string) {

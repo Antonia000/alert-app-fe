@@ -32,9 +32,6 @@ export class WeatherService {
   }
   getWeatherByCity(city: string): Observable<WeatherForecast> {
     this.selectedCity = city;
-    if (this.selectedCity !== 'bucuresti-baneasa') {
-      localStorage.setItem('selectedCity', city);
-    }
     return this.http.get<WeatherForecast>('/api' + '/weather/' + city).pipe(
       catchError(() => {
         new Error('Error while fetching the weather forecasts!');
@@ -44,7 +41,6 @@ export class WeatherService {
   }
 
   getSelectedCity() {
-    console.log(this.selectedCity);
     return this.selectedCity ?? 'bucuresti-baneasa';
   }
 }

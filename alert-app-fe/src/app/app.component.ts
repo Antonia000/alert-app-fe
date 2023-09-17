@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {
+  ActivatedRoute,
   NavigationEnd,
   NavigationError,
   NavigationStart,
@@ -19,7 +20,7 @@ export class AppComponent {
   currentRoute: string;
   headerHasSelect: boolean = false;
   selectedCityWeather$: Observable<TempWidget | null> = of(null);
-  selectedCity: string = 'bucuresti-baneasa';
+  selectedCity: string | null = 'bucuresti-baneasa';
   sideMenuState: string = 'extended';
 
   constructor(
@@ -57,8 +58,34 @@ export class AppComponent {
       }
     });
   }
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.url;
+
+        if (this.currentRoute.includes('/avertizari-meteo')) {
+          this.handleSelectedCity(
+            localStorage.getItem('city') ?? 'bucuresti-baneasa'
+          );
+        }
+      } else {
+        this.selectedCityWeather$ = this.weatherService
+          .getWeatherByCity(localStorage.getItem('city') ?? 'bucuresti-baneasa')
+          .pipe(
+            filter((city) => !!city),
+            map((weatherForecast) => ({
+              temp: weatherForecast.temperatura,
+              city: weatherForecast.oras.replace('-', ' '),
+            }))
+          );
+      }
+    });
+  }
+
   handleSelectedCity(selectedCity: string) {
     this.selectedCity = selectedCity;
+    localStorage.setItem('city', this.selectedCity);
+
     this.selectedCityWeather$ = this.weatherService
       .getWeatherByCity(selectedCity)
       .pipe(
@@ -68,7 +95,7 @@ export class AppComponent {
           city: weatherForecast.oras.replace('-', ' '),
         }))
       );
-    this.router.navigate(['/avertizari-meteo/' + selectedCity]);
+    this.router.navigate(['/avertizari-meteo/' + this.selectedCity]);
   }
 
   handleSideMenuState(value: string) {

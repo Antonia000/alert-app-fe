@@ -1,7 +1,7 @@
 <div class="container" *ngIf="signs$ | async as signs">
   <div class="container__title">
     <p class="container__title__title">Horoscop</p>
-    <p class="container__title__subtitle">astăzi, {{ date }}</p>
+    <p class="container__title__subtitle">astăzi, {{ signs[0].date }}</p>
   </div>
   <div class="container__horoscope">
     <app-horoscope-card
