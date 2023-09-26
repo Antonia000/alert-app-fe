@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "dist/alert-app-fe",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

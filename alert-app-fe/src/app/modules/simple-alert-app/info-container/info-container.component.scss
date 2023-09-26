@@ -1,0 +1,28 @@
+@use "../../../../styles.scss" as vars;
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 10%;
+  min-height: 100vh;
+  &__column {
+    &__title {
+      color: vars.$primary-color;
+      font-weight: vars.$font-weight-normal;
+      font-size: vars.$font-size-title;
+      margin-bottom: 18px;
+    }
+    &__subtitle {
+      color: vars.$primary-color;
+      font-weight: vars.$font-weight-normal;
+      font-size: vars.$font-size-medium;
+      margin-bottom: 5px;
+    }
+    &__content {
+      color: vars.$primary-color-light;
+      font-weight: vars.$font-weight-normal;
+      font-size: vars.$font-size-small;
+    }
+  }
+}

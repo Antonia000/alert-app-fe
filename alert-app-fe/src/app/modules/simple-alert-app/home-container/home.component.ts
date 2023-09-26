@@ -31,19 +31,3 @@ export class HomeContainerComponent {
     this.generalAlerts$ = this.generalAlertService.getGeneralAlerts();
   }
 }
-//  //harcoded for test
-//       map(() => {
-//         return [
-//           {
-//             tipMesaj: '',
-//             numeTipMesaj: '',
-//             dataInceput: '2023-08-26T07:00',
-//             dataSfarsit: '2023-08-26T10:20',
-//             zona: 'Judetul Mehedinti',
-//             semnalare: '',
-//             culoare: 'galben',
-//             numeCuloare: 'galben',
-//             modificat: '',
-//             creat: '',
-//           },
-//         ];

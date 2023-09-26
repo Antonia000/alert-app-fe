@@ -4,10 +4,11 @@ import { HomeContainerComponent } from './modules/simple-alert-app/home-containe
 import { AlertContainerComponent } from './modules/simple-alert-app/alert-container/alert-container.component';
 import { HoroscopeContainerComponent } from './modules/simple-alert-app/horoscope-container/horoscope.component';
 import { HoroscopeSingleComponent } from './modules/simple-alert-app/horoscope-container/components/horoscope-single/horoscope-single.component';
+import { InfoContainerComponent } from './modules/simple-alert-app/info-container/info-container.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'acasa', pathMatch: 'full' },
   { path: 'acasa', component: HomeContainerComponent },
+  { path: '', redirectTo: 'acasa', pathMatch: 'full' },
   {
     path: 'avertizari-meteo',
     redirectTo: 'avertizari-meteo/bucuresti-baneasa',
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'horoscop/:sign',
     component: HoroscopeSingleComponent,
+  },
+  {
+    path: 'info',
+    component: InfoContainerComponent,
   },
 ];
 
