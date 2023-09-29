@@ -19,10 +19,6 @@ export class HoroscopeContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // const day = new Date().getDay();
-    // const month = new Date().toLocaleString('default', { month: 'short' });
-    // const year = new Date().getFullYear();
-    // this.date = `${day} ${month} ${year}`;
     this.signs$ = this.horoscopeService.getHoroscope().pipe(
       filter((data) => !!data),
       map((data: HoroscopeDto[]) => {

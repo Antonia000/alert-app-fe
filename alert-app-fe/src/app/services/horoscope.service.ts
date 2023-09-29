@@ -10,19 +10,23 @@ export class HoroscopeService {
   constructor(private readonly http: HttpClient) {}
 
   getHoroscopeBySign(sign: string): Observable<HoroscopeDto> {
-    return this.http.get<HoroscopeDto>('/api' + '/horoscope/' + sign).pipe(
-      catchError(() => {
-        new Error('Error while fetching horoscope sign by sign!');
-        return of();
-      })
-    );
+    return this.http
+      .get<HoroscopeDto>(this.BASE_URL + '/api' + '/horoscope/' + sign)
+      .pipe(
+        catchError(() => {
+          new Error('Error while fetching horoscope sign by sign!');
+          return of();
+        })
+      );
   }
   getHoroscope(): Observable<HoroscopeDto[]> {
-    return this.http.get<HoroscopeDto[]>('/api' + '/horoscope').pipe(
-      catchError(() => {
-        new Error('Error while fetching horoscope!');
-        return of();
-      })
-    );
+    return this.http
+      .get<HoroscopeDto[]>(this.BASE_URL + '/api' + '/horoscope')
+      .pipe(
+        catchError(() => {
+          new Error('Error while fetching horoscope!');
+          return of();
+        })
+      );
   }
 }

@@ -12,32 +12,36 @@ export class WeatherService {
   constructor(private readonly http: HttpClient) {}
 
   getFirstWeatherForecasts(length: number): Observable<WeatherForecast[]> {
-    return this.http.get<WeatherForecast[]>('/api' + '/weather').pipe(
-      map((weatherForecasts) => weatherForecasts.slice(0, length)),
-      map((weatherForecasts) =>
-        weatherForecasts.map((forecast: WeatherForecast) => {
-          const img = determineWeatherCardImg(forecast.nebulozitate);
-          return {
-            ...forecast,
-            temperatura: Math.round(Number(forecast.temperatura)).toString(),
-            img: img,
-          };
+    return this.http
+      .get<WeatherForecast[]>(this.BASE_URL + '/api' + '/weather')
+      .pipe(
+        map((weatherForecasts) => weatherForecasts.slice(0, length)),
+        map((weatherForecasts) =>
+          weatherForecasts.map((forecast: WeatherForecast) => {
+            const img = determineWeatherCardImg(forecast.nebulozitate);
+            return {
+              ...forecast,
+              temperatura: Math.round(Number(forecast.temperatura)).toString(),
+              img: img,
+            };
+          })
+        ),
+        catchError(() => {
+          new Error('Error while fetching the weather forecasts!');
+          return of([]);
         })
-      ),
-      catchError(() => {
-        new Error('Error while fetching the weather forecasts!');
-        return of([]);
-      })
-    );
+      );
   }
   getWeatherByCity(city: string): Observable<WeatherForecast> {
     this.selectedCity = city;
-    return this.http.get<WeatherForecast>('/api' + '/weather/' + city).pipe(
-      catchError(() => {
-        new Error('Error while fetching the weather forecasts!');
-        return of();
-      })
-    );
+    return this.http
+      .get<WeatherForecast>(this.BASE_URL + '/api' + '/weather/' + city)
+      .pipe(
+        catchError(() => {
+          new Error('Error while fetching the weather forecasts!');
+          return of();
+        })
+      );
   }
 
   getSelectedCity() {

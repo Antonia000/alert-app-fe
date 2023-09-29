@@ -10,20 +10,24 @@ export class NowcastService {
   constructor(private readonly http: HttpClient) {}
 
   getNowcastAlerts(): Observable<NowcastAlert[]> {
-    return this.http.get<NowcastAlert[]>('/api' + '/nowcast').pipe(
-      catchError(() => {
-        new Error('Error while fetching the nowcasting alerts!');
-        return of([]);
-      })
-    );
+    return this.http
+      .get<NowcastAlert[]>(this.BASE_URL + '/api' + '/nowcast')
+      .pipe(
+        catchError(() => {
+          new Error('Error while fetching the nowcasting alerts!');
+          return of([]);
+        })
+      );
   }
   getNowcastAlertsByCounty(county: string): Observable<NowcastAlert[]> {
-    return this.http.get<NowcastAlert[]>('/api' + '/nowcast/' + county).pipe(
-      catchError(() => {
-        new Error('Error while fetching the nowcasting alerts by county!');
-        return of();
-      })
-    );
+    return this.http
+      .get<NowcastAlert[]>(this.BASE_URL + '/api' + '/nowcast/' + county)
+      .pipe(
+        catchError(() => {
+          new Error('Error while fetching the nowcasting alerts by county!');
+          return of();
+        })
+      );
   }
 }
 

@@ -10,15 +10,17 @@ export class GeneralAlertService {
   constructor(private readonly http: HttpClient) {}
 
   getGeneralAlerts(): Observable<GeneralAlert[]> {
-    return this.http.get<GeneralAlertDto[]>('/api' + '/general').pipe(
-      map((alerts) => {
-        return alerts.map((alert) => this.extractAlert(alert)).flat(1);
-      }),
-      catchError(() => {
-        new Error('Error while fetching general alerts!');
-        return of([]);
-      })
-    );
+    return this.http
+      .get<GeneralAlertDto[]>(this.BASE_URL + '/api' + '/general')
+      .pipe(
+        map((alerts) => {
+          return alerts.map((alert) => this.extractAlert(alert)).flat(1);
+        }),
+        catchError(() => {
+          new Error('Error while fetching general alerts!');
+          return of([]);
+        })
+      );
   }
 
   private extractAlert(generalAlert: GeneralAlertDto) {
