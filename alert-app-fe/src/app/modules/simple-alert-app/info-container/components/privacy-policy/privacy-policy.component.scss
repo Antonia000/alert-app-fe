@@ -1,0 +1,9 @@
+@use "../../../../../../styles.scss" as vars;
+h2,
+h4 {
+  color: vars.$primary-color;
+}
+p {
+  color: vars.$secondary-color;
+  font-size: vars.$font-size-small;
+}

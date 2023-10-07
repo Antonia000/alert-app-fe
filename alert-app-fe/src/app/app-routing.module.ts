@@ -5,6 +5,7 @@ import { AlertContainerComponent } from './modules/simple-alert-app/alert-contai
 import { HoroscopeContainerComponent } from './modules/simple-alert-app/horoscope-container/horoscope.component';
 import { HoroscopeSingleComponent } from './modules/simple-alert-app/horoscope-container/components/horoscope-single/horoscope-single.component';
 import { InfoContainerComponent } from './modules/simple-alert-app/info-container/info-container.component';
+import { PrivacyPolicyComponent } from './modules/simple-alert-app/info-container/components/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   { path: 'acasa', component: HomeContainerComponent },
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'info',
     component: InfoContainerComponent,
+  },
+  {
+    path: 'privacy-policy',
+    component: PrivacyPolicyComponent,
   },
 ];
 

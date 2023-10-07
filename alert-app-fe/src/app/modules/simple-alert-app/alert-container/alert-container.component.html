@@ -1,9 +1,10 @@
+<ng-template #loading><app-loader></app-loader></ng-template>
 <div class="container">
   <div class="container__weather">
     <p class="container__weather__title">Vremea în {{ displayedCity }}</p>
     <div class="container__weather__forecasts">
       <app-card
-        *ngIf="weatherForecast$ | async as weatherForecast"
+        *ngIf="weatherForecast$ | async as weatherForecast; else loading"
         [county]="weatherForecast.oras"
         [title]="weatherForecast.nebulozitate"
         [text]="weatherForecast.temperatura"

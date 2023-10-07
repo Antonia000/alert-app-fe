@@ -4,9 +4,8 @@ import { CardModule } from '../components/card/card.module';
 import { AlertSectionModule } from '../components/alert-section/alert-section.module';
 import { RouterModule } from '@angular/router';
 import { HomeContainerComponent } from './home.component';
-import { NowcastService } from 'src/app/services/nowcast.service';
-import { NoDataCardComponent } from '../components/no-data-card/no-data-card.component';
 import { NoDataCardModule } from '../components/no-data-card/no-data-card.module';
+import { LoaderModule } from '../components/loader/loader.module';
 
 @NgModule({
   declarations: [HomeContainerComponent],
@@ -16,6 +15,7 @@ import { NoDataCardModule } from '../components/no-data-card/no-data-card.module
     AlertSectionModule,
     RouterModule,
     NoDataCardModule,
+    LoaderModule,
   ],
   exports: [HomeContainerComponent],
 })

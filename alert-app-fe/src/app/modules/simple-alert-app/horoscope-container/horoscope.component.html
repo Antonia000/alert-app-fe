@@ -1,4 +1,5 @@
-<div class="container" *ngIf="signs$ | async as signs">
+<ng-template #loading><app-loader></app-loader></ng-template>
+<div class="container" *ngIf="signs$ | async as signs; else loading">
   <div class="container__title">
     <p class="container__title__title">Horoscop</p>
     <p class="container__title__subtitle">astăzi, {{ signs[0].date }}</p>

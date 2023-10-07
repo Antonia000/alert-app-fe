@@ -5,6 +5,7 @@ import { AlertSectionModule } from '../components/alert-section/alert-section.mo
 import { RouterModule } from '@angular/router';
 import { AlertContainerComponent } from './alert-container.component';
 import { NoDataCardModule } from '../components/no-data-card/no-data-card.module';
+import { LoaderModule } from '../components/loader/loader.module';
 
 @NgModule({
   declarations: [AlertContainerComponent],
@@ -14,6 +15,7 @@ import { NoDataCardModule } from '../components/no-data-card/no-data-card.module
     AlertSectionModule,
     RouterModule,
     NoDataCardModule,
+    LoaderModule,
   ],
   exports: [AlertContainerComponent],
 })

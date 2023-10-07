@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   handleSelectedCounty(selected: string) {
     this.selectedCity.emit(selected);
   }
+
   handleCustomValue(city: string) {
     return city.replace(' ', '-');
   }

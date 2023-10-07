@@ -1,9 +1,10 @@
+<ng-template #loading><app-loader></app-loader></ng-template>
 <div class="container">
   <div class="container__column">
     <div class="container__column__weather">
       <p class="container__column__weather__title">Vremea în România</p>
       <div
-        *ngIf="weatherForecast$ | async as weatherForecasts"
+        *ngIf="weatherForecast$ | async as weatherForecasts; else loading"
         class="container__column__weather__forecasts"
       >
         <app-card
@@ -14,6 +15,7 @@
           [text]="forecast.temperatura"
           [background]="forecast.img"
         ></app-card>
+
         <div class="container__column__weather__forecasts__link">
           <a [routerLink]="['/avertizari-meteo']"
             >vezi vremea în <b>orasul tău</b>
