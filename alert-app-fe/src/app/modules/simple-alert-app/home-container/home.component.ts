@@ -9,6 +9,7 @@ import { WeatherForecast } from 'src/app/models/weather-forecast.model';
 import { GeneralAlertService } from 'src/app/services/general.service';
 import { NowcastService } from 'src/app/services/nowcast.service';
 import { WeatherService } from 'src/app/services/weather.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-home-container',

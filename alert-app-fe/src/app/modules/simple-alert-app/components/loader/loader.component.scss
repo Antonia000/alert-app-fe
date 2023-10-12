@@ -4,11 +4,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  border: 16px solid #e0e0e0;
+  border: 12px solid #e0e0e0;
   border-radius: 50%;
-  border-top: 16px solid vars.$secondary-color;
-  width: 120px;
-  height: 120px;
+  border-top: 12px solid vars.$secondary-color;
+  width: 80px;
+  height: 80px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
 }
