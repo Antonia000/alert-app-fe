@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, filter, map, of } from 'rxjs';
+import { HoroscopeSign } from 'src/app/helpers/horoscope-signs';
 import { HoroscopeCard, HoroscopeDto } from 'src/app/models/horoscope.model';
 import { HoroscopeService } from 'src/app/services/horoscope.service';
 
@@ -25,7 +26,7 @@ export class HoroscopeContainerComponent implements OnInit {
         return data
           .filter((data) => data?.data)
           .map((item: HoroscopeDto) => ({
-            sign: item.sign,
+            sign: HoroscopeSign[item.sign as keyof typeof HoroscopeSign],
             title: item.sign.toLocaleUpperCase(),
             ro_data: item.ro_data,
             data: item.data,
