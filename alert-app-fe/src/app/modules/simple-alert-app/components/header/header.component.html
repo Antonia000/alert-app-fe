@@ -23,15 +23,17 @@
           class="app__header__inline__text"
           >vezi vremea în <b>orasul tău</b></a
         >
-        <span *ngIf="temperatureWidget" class="app__header__inline__bold"
-          >{{ temperatureWidget.temp }}&deg;C
-        </span>
-        <span *ngIf="temperatureWidget" class="app__header__inline__text">
-          acum in {{ temperatureWidget.city }}
-        </span>
+        <div class="app__header__inline__widget">
+          <span *ngIf="temperatureWidget" class="app__header__inline__bold"
+            >{{ temperatureWidget.temp }}&deg;C
+          </span>
+          <span *ngIf="temperatureWidget" class="app__header__inline__text">
+            acum in {{ temperatureWidget.city }}
+          </span>
+        </div>
       </div>
 
-      <div>
+      <div class="flex">
         <button
           class="app__header__inline__button"
           (click)="handleTranslate('ro')"

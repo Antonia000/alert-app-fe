@@ -1,7 +1,7 @@
-import { HoroscopeSign } from '../helpers/horoscope-signs';
+import { HoroscopeSign, HoroscopeSignToRo } from '../helpers/horoscope-signs';
 
 export interface HoroscopeDto {
-  sign: HoroscopeSign;
+  sign: HoroscopeSignToRo;
   data: string;
   ro_data: string;
   date: string;

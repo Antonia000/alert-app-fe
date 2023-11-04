@@ -6,11 +6,17 @@
   gap: 10%;
   width: 100%;
   min-height: 90vh;
+  @media only screen and (max-width: 600px) {
+    min-height: auto;
+  }
 
   &__weather {
     width: 45%;
     cursor: default;
     align-items: flex-start;
+    @media only screen and (max-width: 1000px) {
+      width: 100%;
+    }
     &__title {
       color: vars.$primary-color;
       font-weight: vars.$font-weight-normal;
@@ -18,26 +24,14 @@
       margin-bottom: 12px;
       text-transform: capitalize;
     }
-
-    &__forecasts {
-      &__link {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-
-        a {
-          color: vars.$primary-color;
-          font-size: vars.$font-size-small;
-          text-align: right;
-          padding-top: 10px;
-        }
-      }
-    }
   }
   &__nowcast {
     flex-wrap: wrap;
     width: 45%;
     cursor: default;
+    @media only screen and (max-width: 1000px) {
+      width: 100%;
+    }
     &__title {
       text-transform: capitalize;
     }

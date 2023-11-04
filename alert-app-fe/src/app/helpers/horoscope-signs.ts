@@ -12,3 +12,18 @@ export enum HoroscopeSign {
   varsator = 'aquarius',
   pesti = 'pisces',
 }
+
+export enum HoroscopeSignToRo {
+  aries = 'berbec',
+  taurus = 'taur',
+  gemini = 'gemeni',
+  cancer = 'rac',
+  leo = 'leu',
+  virgo = 'fecioara',
+  libra = 'balanta',
+  scorpio = 'scorpion',
+  sagittarius = 'sagetator',
+  capricorn = 'capricorn',
+  aquarius = 'varsator',
+  pisces = 'pesti',
+}

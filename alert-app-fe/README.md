@@ -28,8 +28,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 TODO:
 
-1. implement for mobile firnedly
-2. treat case where no horoscope data exists - there is a thing associated with it: the city in nav for the weather doesn't appear error in console
+1. implement for mobile friendly
+2. treat case where no (horoscope) data exists - there is a thing associated with it: the city in nav for the weather doesn't appear error in console
 3. finish info page
 4. implement google analitics
 5. google ads : adsense
+6. fix the dropdown card

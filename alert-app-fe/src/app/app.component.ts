@@ -46,7 +46,7 @@ export class AppComponent {
               }),
               filter((city) => !!city),
               map((weatherForecast) => ({
-                temp: weatherForecast.temperatura,
+                temp: parseInt(weatherForecast.temperatura).toFixed(),
                 city: weatherForecast.oras.replace('-', ' '),
               }))
             );
@@ -74,7 +74,7 @@ export class AppComponent {
           .pipe(
             filter((city) => !!city),
             map((weatherForecast) => ({
-              temp: weatherForecast.temperatura,
+              temp: parseInt(weatherForecast.temperatura).toFixed(),
               city: weatherForecast.oras.replace('-', ' '),
             }))
           );
@@ -91,7 +91,7 @@ export class AppComponent {
       .pipe(
         filter((city) => !!city),
         map((weatherForecast) => ({
-          temp: weatherForecast.temperatura,
+          temp: parseInt(weatherForecast.temperatura).toFixed(),
           city: weatherForecast.oras.replace('-', ' '),
         }))
       );

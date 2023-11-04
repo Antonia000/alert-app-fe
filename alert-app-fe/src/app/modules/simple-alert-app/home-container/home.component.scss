@@ -5,10 +5,19 @@
   width: 100%;
   gap: 10%;
   min-height: 100vh;
+  @media only screen and (max-width: 1000px) {
+    min-height: auto;
+  }
+
   &__column {
     width: 45%;
+    @media only screen and (max-width: 1000px) {
+      width: 100%;
+    }
+
     &__weather {
       width: 100%;
+
       cursor: default;
       &__title {
         color: vars.$primary-color;
@@ -21,6 +30,16 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        @media only screen and (max-width: 1200px) {
+          flex-wrap: no-wrap;
+          justify-content: flex-start;
+          gap: 5px;
+        }
+        @media only screen and (max-width: 600px) {
+          flex-wrap: no-wrap;
+          justify-content: center;
+          gap: 5px;
+        }
         &__link {
           width: 100%;
           display: flex;
@@ -66,6 +85,9 @@
     flex-wrap: wrap;
     width: 45%;
     cursor: default;
+    @media only screen and (max-width: 1000px) {
+      width: 100%;
+    }
 
     &__link {
       width: 100%;
@@ -84,6 +106,9 @@
       font-weight: vars.$font-weight-normal;
       font-size: vars.$font-size-title;
       margin-bottom: 18px;
+      @media only screen and (max-width: 1000px) {
+        font-size: vars.$font-size-medium;
+      }
     }
     * {
       width: 100%;

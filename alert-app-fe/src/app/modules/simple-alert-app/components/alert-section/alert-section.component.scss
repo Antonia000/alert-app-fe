@@ -15,10 +15,14 @@
     margin-bottom: 10px;
     overflow: hidden;
     transition: height 1s;
+
     &__info {
       font-size: vars.$font-size-extra-small;
       color: vars.$primary-color-light;
       padding-top: 10px;
+      @media only screen and (max-width: 600px) {
+        font-size: vars.$font-size-small-mobile;
+      }
     }
     &__title {
       display: flex;
@@ -46,6 +50,9 @@
       color: vars.$primary-color;
       font-size: vars.$font-size-small;
       font-weight: vars.$font-weight-normal;
+      @media only screen and (max-width: 600px) {
+        font-size: vars.$font-size-small-mobile;
+      }
       p {
         margin: 2px;
         width: 100%;
@@ -53,12 +60,18 @@
       &__day {
         font-size: vars.$font-size-small;
         font-weight: vars.$font-weight-medium;
+        @media only screen and (max-width: 600px) {
+          font-size: vars.$font-size-small-mobile;
+        }
       }
     }
     &__type {
       font-weight: vars.$font-weight-medium;
       font-size: vars.$font-size-medium;
       margin: 0;
+      @media only screen and (max-width: 600px) {
+        font-size: vars.$font-size-small;
+      }
     }
   }
   &__alert:hover {

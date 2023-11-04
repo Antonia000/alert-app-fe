@@ -16,6 +16,12 @@
     justify-content: flex-start;
     width: 250px;
     padding: 0 10px;
+    @media only screen and (max-width: 1300px) {
+      width: 210px;
+    }
+    @media only screen and (max-width: 1000px) {
+      width: 180px;
+    }
   }
 
   &__logo {
@@ -31,6 +37,9 @@
       &__img {
         display: block;
         width: 200px;
+        @media only screen and (max-width: 1000px) {
+          width: 180px;
+        }
       }
       &__button {
         margin-top: 40px;
@@ -112,6 +121,9 @@
   span {
     margin-left: 12px;
     line-height: vars.$font-size-small;
+    @media only screen and (max-width: 1000px) {
+      font-size: vars.$font-size-extra-small;
+    }
   }
 }
 

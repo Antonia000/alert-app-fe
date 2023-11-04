@@ -12,17 +12,29 @@
   background-size: cover;
   padding: 25px 35px;
   color: #fff;
+  @media only screen and (max-width: 600px) {
+    align-items: flex-start;
+  }
   font-weight: vars.$font-weight-normal;
   font-size: vars.$font-size-large;
   &__right {
     font-size: vars.$font-size-extra-large;
+    @media only screen and (max-width: 600px) {
+      font-size: vars.$font-size-medium;
+    }
   }
   &__left {
     text-transform: capitalize;
+    @media only screen and (max-width: 1000px) {
+      font-size: vars.$font-size-medium;
+    }
     &__more {
       font-size: vars.$font-size-small;
       color: vars.$secondary-color;
       text-transform: lowercase;
+      @media only screen and (max-width: 600px) {
+        font-size: vars.$font-size-small-mobile;
+      }
     }
   }
   &__mini {
@@ -35,20 +47,37 @@
     background-size: cover;
     padding: 20px;
     color: #fff;
+    @media only screen and (max-width: 600px) {
+      width: 50px;
+      height: 80px;
+    }
 
     font-weight: vars.$font-weight-normal;
     font-size: vars.$font-size-large;
     &__top {
       font-size: vars.$font-size-extra-large;
+      @media only screen and (max-width: 1000px) {
+        font-size: vars.$font-size-title;
+      }
       &__county {
         color: vars.$primary-color;
         font-size: vars.$font-size-extra-small;
         text-transform: capitalize;
+        width: 120px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @media only screen and (max-width: 600px) {
+          width: 55px;
+        }
       }
     }
     &__bottom {
       font-size: vars.$font-size-small;
       color: vars.$accent-color;
+      @media only screen and (max-width: 1000px) {
+        font-size: vars.$font-size-small-mobile;
+      }
     }
   }
 }
