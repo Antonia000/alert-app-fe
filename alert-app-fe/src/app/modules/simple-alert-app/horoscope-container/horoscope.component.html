@@ -1,10 +1,15 @@
 <ng-template #loading><app-loader></app-loader></ng-template>
+<ng-template #noData>
+  <p>Momentan Indisponibil</p>
+</ng-template>
 <div class="container" *ngIf="signs$ | async as signs; else loading">
   <div class="container__title">
     <p class="container__title__title">Horoscop</p>
-    <p class="container__title__subtitle">astăzi, {{ signs[0].date }}</p>
+    <p class="container__title__subtitle" *ngIf="signs.length">
+      astăzi, {{ signs[0].date }}
+    </p>
   </div>
-  <div class="container__horoscope">
+  <div class="container__horoscope" *ngIf="signs.length > 0; else noData">
     <app-horoscope-card
       (click)="handleRedirectToSinglePage(sign.sign)"
       class="container__card"

@@ -8,7 +8,7 @@
         [county]="weatherForecast.oras"
         [title]="weatherForecast.nebulozitate"
         [text]="weatherForecast.temperatura"
-        [background]="'../../../../assets/img/card-bg.jpg'"
+        [background]="weatherForecast.img"
         [additional]="{
           umezeala: weatherForecast.umezeala,
           vant: weatherForecast.vant
@@ -16,23 +16,29 @@
       ></app-card>
     </div>
   </div>
-  <div
-    class="container__nowcast"
-    *ngIf="nowcastAlerts$ | async as nowcastAlerts"
-  >
-    <p class="container__nowcast__title">
-      Alerte Nowcast Active în {{ displayedCity }}
-    </p>
-    <app-alert-section [alerts]="nowcastAlerts"></app-alert-section>
-    <app-no-data-card
-      *ngIf="nowcastAlerts.length === 0"
-      [text]="'In ultima ora'"
-      [title]="'Nu există alerte emise'"
-    ></app-no-data-card>
-    <div class="container__nowcast__link">
-      <a *ngIf="nowcastAlerts.length" [routerLink]="['/avertizari-meteo']"
-        >vezi avertizări în <b>județul tău</b>
-      </a>
+  <div class="container__nowcast">
+    <p class="container__nowcast__title">Avertizări în {{ displayedCity }}</p>
+    <div *ngIf="nowcastAlerts$ | async as nowcastAlerts; else loading">
+      <div *ngIf="generalAlerts$ | async as generalAlerts">
+        <div *ngIf="nowcastAlerts.length > 0">
+          <app-alert-section [alerts]="nowcastAlerts"></app-alert-section>
+        </div>
+        <div *ngIf="generalAlerts.length > 0">
+          <app-alert-section [alerts]="generalAlerts"></app-alert-section>
+        </div>
+        <app-no-data-card
+          *ngIf="nowcastAlerts.length === 0 && generalAlerts.length === 0"
+          [text]="'În ultima oră'"
+          [title]="'Nu există avertizări emise'"
+        ></app-no-data-card>
+        <div class="container__nowcast__link">
+          <a
+            *ngIf="nowcastAlerts.length > 0 && generalAlerts.length > 0"
+            [routerLink]="['/avertizari-meteo']"
+            >vezi avertizări în <b>județul tău</b>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

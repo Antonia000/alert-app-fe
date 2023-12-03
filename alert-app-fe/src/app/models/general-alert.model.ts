@@ -16,4 +16,5 @@ export interface GeneralAlert {
   semnalare: string;
   culoare: string;
   numeCuloare: string;
+  judete?: string[];
 }

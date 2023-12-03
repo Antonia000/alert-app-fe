@@ -9,8 +9,19 @@ export interface WeatherForecast {
 }
 
 export enum WeatherConditions {
-  CPN = 'cer partial noros',
-  IND = 'indisponibil',
-  CS = 'cer senin',
-  CA = 'cer acoperit',
+  CPND = 'cer partial noros',
+  INDD = 'indisponibil',
+  CSD = 'cer senin',
+  CAD = 'cer acoperit',
+  CPNN = 'cer partial noros',
+  INDN = 'indisponibil',
+  CSN = 'cer senin',
+  CAN = 'cer acoperit',
+}
+
+export enum WeatherSeasons {
+  SUMMER = 'summer',
+  SPRING = 'spring',
+  WINTER = 'winter',
+  AUTUMN = 'autumn',
 }

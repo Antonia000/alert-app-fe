@@ -9,6 +9,7 @@
     border-bottom: 2px solid vars.$border-color;
     @media only screen and (max-width: 1000px) {
       font-size: vars.$font-size-extra-small;
+      padding: 5px 10px;
     }
 
     &__select {
@@ -34,9 +35,6 @@
         background-color: vars.$primary-color;
         border-radius: 0.3em;
       }
-      @media only screen and (max-width: 1000px) {
-        width: 10em;
-      }
     }
 
     &__icon {
@@ -44,7 +42,7 @@
       align-items: center;
       margin-right: 70px;
       @media only screen and (max-width: 1000px) {
-        margin-right: 10px;
+        margin-right: 4px;
         font-size: vars.$font-size-extra-small;
       }
       img {

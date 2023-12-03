@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GeneralAlert, GeneralAlertDto } from '../models/general-alert.model';
+import { counties } from '../helpers/ro-counties.helper';
+import { removeAccentString } from '../helpers/accents.helper';
 
 @Injectable({ providedIn: 'root' })
 export class GeneralAlertService {
@@ -34,32 +36,62 @@ export class GeneralAlertService {
       .slice(1)
       .map((alert) => {
         const semnalare = alert.split(/\r?\n/)[2].trim().split('. ')[0];
+
+        const judete: string[] = [];
+
+        counties.map((county) => {
+          semnalare.includes(county.toLocaleLowerCase())
+            ? judete.push(county)
+            : '';
+        });
+
         if (alert.includes('galben')) {
           return {
             dataInceput: generalAlert.dataAparitiei,
             dataSfarsit: generalAlert.dataExpirarii,
-            zona: '',
+            zona: judete.join(','),
             semnalare: semnalare,
             culoare: 'galben',
             numeCuloare: 'galben',
+            judete: judete.map((judet) =>
+              removeAccentString(judet.toLocaleLowerCase())
+            ),
           };
         } else if (alert.includes('portocaliu')) {
           return {
             dataInceput: generalAlert.dataAparitiei,
             dataSfarsit: generalAlert.dataExpirarii,
-            zona: '',
+            zona: judete.join(' ,'),
             semnalare: semnalare,
             culoare: 'portocaliu',
             numeCuloare: 'portocaliu',
+            judete: judete.map((judet) =>
+              removeAccentString(judet.toLocaleLowerCase())
+            ),
+          };
+        } else if (removeAccentString(alert).includes('rosu')) {
+          return {
+            dataInceput: generalAlert.dataAparitiei,
+            dataSfarsit: generalAlert.dataExpirarii,
+            zona: judete.join(','),
+            semnalare: semnalare,
+            culoare: 'rosu',
+            numeCuloare: 'rosu',
+            judete: judete.map((judet) =>
+              removeAccentString(judet.toLocaleLowerCase())
+            ),
           };
         } else {
           return {
             dataInceput: generalAlert.dataAparitiei,
             dataSfarsit: generalAlert.dataExpirarii,
-            zona: '',
+            zona: judete.join(','),
             semnalare: semnalare,
-            culoare: 'rosu',
-            numeCuloare: 'rosu',
+            culoare: 'galben',
+            numeCuloare: 'galben',
+            judete: judete.map((judet) =>
+              removeAccentString(judet.toLocaleLowerCase())
+            ),
           };
         }
       });

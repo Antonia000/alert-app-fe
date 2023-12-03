@@ -37,6 +37,14 @@ export class WeatherService {
     return this.http
       .get<WeatherForecast>(this.BASE_URL + '/api' + '/weather/' + city)
       .pipe(
+        map((forecast) => {
+          const img = determineWeatherCardImg(forecast.nebulozitate);
+          return {
+            ...forecast,
+            temperatura: Math.round(Number(forecast.temperatura)).toString(),
+            img: img,
+          };
+        }),
         catchError(() => {
           new Error('Error while fetching the weather forecasts!');
           return of();

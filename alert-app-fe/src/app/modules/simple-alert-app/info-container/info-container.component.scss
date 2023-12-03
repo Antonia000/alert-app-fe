@@ -1,34 +1,79 @@
 @use "../../../../styles.scss" as vars;
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 10%;
-  min-height: 100vh;
+  padding-top: 15px;
+  min-height: 90vh;
+  &__layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+  }
+
   &__column {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+
     &__title {
       color: vars.$primary-color;
       font-weight: vars.$font-weight-normal;
       font-size: vars.$font-size-title;
-      margin-bottom: 18px;
+      @media only screen and (max-width: 600px) {
+        font-size: vars.$font-size-medium;
+      }
     }
     &__subtitle {
       color: vars.$primary-color;
       font-weight: vars.$font-weight-normal;
       font-size: vars.$font-size-medium;
       margin-bottom: 5px;
+      @media only screen and (max-width: 600px) {
+        font-size: vars.$font-size-small;
+      }
     }
     &__content {
+      display: flex;
       color: vars.$primary-color-light;
       font-weight: vars.$font-weight-normal;
       font-size: vars.$font-size-small;
+      width: 90%;
+      @media only screen and (max-width: 600px) {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      &__logo {
+        padding-right: 25px;
+        display: flex;
+        align-items: center;
+        img {
+          width: 9em;
+          height: 9em;
+        }
+      }
+      &__text {
+        font-size: vars.$font-size-small;
+        color: vars.$secondary-color;
+        font-weight: vars.$font-weight-light;
+        @media only screen and (max-width: 600px) {
+          font-size: vars.$font-size-extra-small;
+        }
+      }
     }
   }
 }
 
 .link {
   color: vars.$primary-color;
+  font-weight: vars.$font-weight-light;
   font-size: vars.$font-size-small;
   text-align: right;
+  @media only screen and (max-width: 600px) {
+    font-size: vars.$font-size-extra-small;
+  }
+}
+p {
+  margin: 5px 0;
 }

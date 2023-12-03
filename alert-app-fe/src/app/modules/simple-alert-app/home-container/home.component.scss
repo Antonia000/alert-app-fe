@@ -6,7 +6,8 @@
   gap: 10%;
   min-height: 100vh;
   @media only screen and (max-width: 1000px) {
-    min-height: auto;
+    display: block;
+    min-height: 90vh;
   }
 
   &__column {
@@ -24,6 +25,10 @@
         font-weight: vars.$font-weight-normal;
         font-size: vars.$font-size-title;
         margin-bottom: 18px;
+
+        @media only screen and (max-width: 600px) {
+          font-size: vars.$font-size-medium;
+        }
       }
 
       &__forecasts {
@@ -50,6 +55,9 @@
             font-size: vars.$font-size-small;
             text-align: right;
             padding-top: 10px;
+            @media only screen and (max-width: 600px) {
+              font-size: vars.$font-size-small-mobile;
+            }
           }
         }
       }
@@ -66,6 +74,9 @@
           color: vars.$primary-color;
           font-size: vars.$font-size-small;
           text-align: right;
+          @media only screen and (max-width: 600px) {
+            font-size: vars.$font-size-small-mobile;
+          }
         }
       }
 
@@ -74,6 +85,9 @@
         font-weight: vars.$font-weight-normal;
         font-size: vars.$font-size-title;
         margin-bottom: 18px;
+        @media only screen and (max-width: 600px) {
+          font-size: vars.$font-size-medium;
+        }
       }
       * {
         width: 100%;
@@ -98,6 +112,9 @@
         color: vars.$primary-color;
         font-size: vars.$font-size-small;
         text-align: right;
+        @media only screen and (max-width: 600px) {
+          font-size: vars.$font-size-small-mobile;
+        }
       }
     }
 
@@ -107,6 +124,9 @@
       font-size: vars.$font-size-title;
       margin-bottom: 18px;
       @media only screen and (max-width: 1000px) {
+        font-size: vars.$font-size-medium;
+      }
+      @media only screen and (max-width: 600px) {
         font-size: vars.$font-size-medium;
       }
     }

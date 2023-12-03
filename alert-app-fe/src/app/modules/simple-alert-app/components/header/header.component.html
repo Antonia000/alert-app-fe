@@ -17,12 +17,6 @@
     <div class="app__header__inline">
       <div class="app__header__icon">
         <img src="../../../../../assets/img/header-icon-cloud.png" />
-        <a
-          [routerLink]="'/avertizari-meteo/bucuresti-baneasa'"
-          *ngIf="temperatureWidget === null"
-          class="app__header__inline__text"
-          >vezi vremea în <b>orasul tău</b></a
-        >
         <div class="app__header__inline__widget">
           <span *ngIf="temperatureWidget" class="app__header__inline__bold"
             >{{ temperatureWidget.temp }}&deg;C
@@ -33,7 +27,8 @@
         </div>
       </div>
 
-      <div class="flex">
+      <!--WIP-->
+      <!-- <div class="flex">
         <button
           class="app__header__inline__button"
           (click)="handleTranslate('ro')"
@@ -47,7 +42,7 @@
         >
           EN
         </button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

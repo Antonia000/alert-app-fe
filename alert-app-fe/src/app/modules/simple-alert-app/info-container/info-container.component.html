@@ -1,16 +1,52 @@
 <div class="container">
-  <div class="container__column">
-    <p class="container__column__title">Informații</p>
-    <div>
-      <h3 class="container__column__subtitle">Alerte Meteo</h3>
-      <p class="container__column__content">
-        Informațiile furnizate de avertizari-meteo.ro au ca sursă principală
-        Administrația Natională de Meteorologie, respectiv website-ul
-        meteoromania.ro care oferă access la alerte sau informări meteorologice
-        în mod public prin intermediul unor interfete de tip APIs sau de tip
-        XML.
-      </p>
+  <div class="container__layout">
+    <div class="container__column">
+      <p class="container__column__title">Despre</p>
+      <div class="container__column__content">
+        <div class="container__column__content__logo">
+          <img src="../../../../assets//logo/logo-black-mini.svg" />
+        </div>
+        <div>
+          <h3 class="container__column__subtitle">avertizari-meteo.ro</h3>
+          <p class="container__column__content__text">
+            Bine ai venit pe avertizari-meteo.ro, sursa ta de încredere pentru
+            avertizări meteorologice în timp real. Fii mereu la curent cu
+            schimbările vremii, urmărind condițiile meteorologice din zona ta.
+            Noi te asigurăm că vei fi informat rapid cu privire la vremea
+            severă, permițându-ți să iei decizii informate pentru a te menține
+            în siguranță pe tine și cei dragi. Indiferent dacă este vorba de
+            furtuni, ploi torențiale sau ninsori, website-ul nostru te ajută să
+            stai informat.
+          </p>
+        </div>
+      </div>
     </div>
-    <a [routerLink]="'/privacy-policy'" class="link"><b> Privacy Policy </b></a>
+
+    <div class="container__column">
+      <p class="container__column__title">Contact</p>
+      <div class="container__column__content">
+        <div>
+          <p class="container__column__content__text">
+            Pentru mai multe detalii sau întrebări ne puteți contacta la adresa
+            de email
+          </p>
+          <p class="container__column__subtitle">contact@avertizari-meteo.ro</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container__column">
+      <p class="container__column__title">Mai multe informații</p>
+      <div>
+        <a [routerLink]="'/privacy-policy'" class="link"
+          ><b> Privacy Policy </b></a
+        >
+      </div>
+      <div>
+        <a [routerLink]="'/privacy-policy'" class="link"
+          ><b> Terms & Conditions</b></a
+        >
+      </div>
+    </div>
   </div>
 </div>

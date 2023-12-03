@@ -34,15 +34,34 @@
     display: flex;
     justify-content: space-around;
     margin-top: 7%;
+    @media only screen and (max-width: 1000px) {
+      flex-direction: column;
+    }
 
     &__sign {
+      display: flex;
+      align-items: center;
       background-color: vars.$secondary-color-bright;
       padding: 3%;
       border-radius: 50%;
+      @media only screen and (max-width: 1000px) {
+        width: 140px;
+        height: 140px;
+        margin: auto;
+      }
+
       &__bg {
+        display: flex;
+        align-items: center;
         background-color: azure;
         border-radius: 50%;
         padding: 30px;
+
+        @media only screen and (max-width: 1000px) {
+          width: 60px;
+          height: 60px;
+          margin: auto;
+        }
       }
     }
     &__text {
@@ -52,6 +71,10 @@
       align-items: center;
       color: vars.$secondary-color;
       font-size: vars.$font-size-medium;
+      @media only screen and (max-width: 1000px) {
+        width: 100%;
+        text-align: center;
+      }
     }
   }
 }
@@ -61,4 +84,8 @@
   margin: auto;
   background-size: contain;
   background-repeat: no-repeat;
+  @media only screen and (max-width: 1000px) {
+    width: 70px;
+    height: 70px;
+  }
 }

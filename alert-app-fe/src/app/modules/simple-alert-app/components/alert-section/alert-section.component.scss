@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   min-width: inherit;
   &__alert {
-    height: 2.2em;
+    height: 52px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -15,11 +15,16 @@
     margin-bottom: 10px;
     overflow: hidden;
     transition: height 1s;
+    @media only screen and (max-width: 600px) {
+      height: 40px;
+      touch-action: auto;
+    }
 
     &__info {
       font-size: vars.$font-size-extra-small;
       color: vars.$primary-color-light;
       padding-top: 10px;
+
       @media only screen and (max-width: 600px) {
         font-size: vars.$font-size-small-mobile;
       }
@@ -31,6 +36,9 @@
       justify-content: center;
       white-space: nowrap;
       width: 70%;
+      @media only screen and (max-width: 600px) {
+        width: 60%;
+      }
     }
     &__county {
       white-space: nowrap;
@@ -40,6 +48,9 @@
       font-size: vars.$font-size-small;
       font-weight: vars.$font-weight-normal;
       color: vars.$secondary-color-light;
+      @media only screen and (max-width: 600px) {
+        font-size: vars.$font-size-small-mobile;
+      }
     }
     &__date {
       display: flex;
@@ -52,6 +63,7 @@
       font-weight: vars.$font-weight-normal;
       @media only screen and (max-width: 600px) {
         font-size: vars.$font-size-small-mobile;
+        width: 35%;
       }
       p {
         margin: 2px;
@@ -70,13 +82,16 @@
       font-size: vars.$font-size-medium;
       margin: 0;
       @media only screen and (max-width: 600px) {
-        font-size: vars.$font-size-small;
+        font-size: vars.$font-size-extra-small;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
   &__alert:hover {
-    height: 4.5em;
+    height: 120px;
     cursor: pointer;
+    overflow: auto;
   }
 }
 
@@ -109,4 +124,10 @@
   );
   color: vars.$mild-weather;
   font-size: vars.$font-size-title;
+}
+
+.expanded {
+  height: 120px;
+  cursor: pointer;
+  overflow: auto;
 }

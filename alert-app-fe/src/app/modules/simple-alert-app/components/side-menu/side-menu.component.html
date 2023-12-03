@@ -24,12 +24,16 @@
     </button>
 
     <!--Logo-->
+
     <img
+      (click)="redirectHome()"
       *ngIf="!sideMenuOpen"
       class="sidenav__logo__img"
       src="../../../../../assets/logo/logo-black-mini.svg"
     />
+
     <img
+      (click)="redirectHome()"
       *ngIf="sideMenuOpen"
       class="sidenav__logo__expanded__img"
       src="../../../../../assets/logo/logo-black.svg"
@@ -58,7 +62,7 @@
         }"
         ><img src="../../../../../assets/img/cloud-icon.svg" /><span
           *ngIf="sideMenuOpen"
-          >Alerte meteo</span
+          >Avertizări meteo</span
         ></a
       >
       <a

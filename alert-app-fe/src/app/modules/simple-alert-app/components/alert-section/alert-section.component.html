@@ -1,6 +1,8 @@
 <div class="container">
   <div
     class="container__alert"
+    (click)="onClick(alert)"
+    [class.expanded]="alert.toggle"
     [ngClass]="{
       galben: alert.intensitate === 'Avertizare cod galben',
       portocaliu: alert.intensitate === 'Avertizare cod portcaliu',

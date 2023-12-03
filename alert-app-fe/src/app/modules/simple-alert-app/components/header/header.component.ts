@@ -18,9 +18,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleTranslate(lang: string) {
-    console.log(lang);
-  }
+  handleTranslate(lang: string) {}
 
   handleSelectedCounty(selected: string) {
     this.selectedCity.emit(selected);

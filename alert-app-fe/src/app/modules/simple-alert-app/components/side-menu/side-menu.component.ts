@@ -5,6 +5,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu',
@@ -17,7 +18,7 @@ export class SideMenuComponent implements OnInit {
   breakPoint: number = 1300;
   @Output() sideMenuStateChanged: EventEmitter<string> = new EventEmitter();
 
-  constructor() {}
+  constructor(private readonly router: Router) {}
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
@@ -50,5 +51,8 @@ export class SideMenuComponent implements OnInit {
     const state = this.sideMenuOpen ? 'extended' : 'unextended';
     this.sideMenuStateChanged.emit(state);
     return state;
+  }
+  redirectHome() {
+    this.router.navigate(['acasa']);
   }
 }

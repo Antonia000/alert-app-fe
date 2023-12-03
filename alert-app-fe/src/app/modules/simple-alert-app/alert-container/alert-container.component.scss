@@ -6,8 +6,8 @@
   gap: 10%;
   width: 100%;
   min-height: 90vh;
-  @media only screen and (max-width: 600px) {
-    min-height: auto;
+  @media only screen and (max-width: 1000px) {
+    display: block;
   }
 
   &__weather {
@@ -23,6 +23,9 @@
       font-size: vars.$font-size-title;
       margin-bottom: 12px;
       text-transform: capitalize;
+      @media only screen and (max-width: 600px) {
+        font-size: vars.$font-size-medium;
+      }
     }
   }
   &__nowcast {
@@ -53,6 +56,9 @@
       font-weight: vars.$font-weight-normal;
       font-size: vars.$font-size-title;
       margin-bottom: 12px;
+      @media only screen and (max-width: 600px) {
+        font-size: vars.$font-size-medium;
+      }
     }
     * {
       width: 100%;

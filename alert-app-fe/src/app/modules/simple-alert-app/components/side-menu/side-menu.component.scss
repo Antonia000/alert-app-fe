@@ -10,6 +10,10 @@
   justify-content: center;
   padding: 10px;
 
+  @media only screen and (max-width: 600px) {
+    width: 35px;
+  }
+
   &__expanded {
     display: flex;
     flex-wrap: wrap;
@@ -29,8 +33,12 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    cursor: pointer;
     &__img {
       width: 60px;
+      @media only screen and (max-width: 1000px) {
+        width: 40px;
+      }
     }
 
     &__expanded {
@@ -38,7 +46,7 @@
         display: block;
         width: 200px;
         @media only screen and (max-width: 1000px) {
-          width: 180px;
+          width: 150px;
         }
       }
       &__button {

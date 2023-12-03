@@ -25,17 +25,19 @@
     </div>
     <div
       class="container__column__general"
-      *ngIf="generalAlerts$ | async as generalAlerts"
+      *ngIf="generalAlerts$ | async as generalAlerts; else loading"
     >
-      <p class="container__column__general__title">Alte Alerte În România</p>
+      <p class="container__column__general__title">
+        Alte Avertizări În România
+      </p>
       <app-alert-section
         *ngIf="generalAlerts.length > 0"
         [alerts]="generalAlerts"
       ></app-alert-section>
       <app-no-data-card
         *ngIf="generalAlerts.length === 0"
-        [text]="'In ultima ora'"
-        [title]="'Nu există alerte emise'"
+        [text]="'În ultima oră'"
+        [title]="'Nu există avertizări emise'"
       ></app-no-data-card>
       <div class="container__column__general__link">
         <a *ngIf="generalAlerts.length > 0" [routerLink]="['/avertizari-meteo']"
@@ -47,17 +49,17 @@
 
   <div
     class="container__nowcast"
-    *ngIf="nowcastAlerts$ | async as nowcastAlerts"
+    *ngIf="nowcastAlerts$ | async as nowcastAlerts; else loading"
   >
-    <p class="container__nowcast__title">Alerte Nowcast Active în România</p>
+    <p class="container__nowcast__title">Avertizări Nowcast în România</p>
     <app-alert-section
       *ngIf="nowcastAlerts.length > 0"
       [alerts]="nowcastAlerts"
     ></app-alert-section>
     <app-no-data-card
       *ngIf="nowcastAlerts.length === 0"
-      [text]="'In ultima ora'"
-      [title]="'Nu există alerte emise'"
+      [text]="'În ultima oră'"
+      [title]="'Nu există avertizări emise'"
     ></app-no-data-card>
   </div>
 </div>

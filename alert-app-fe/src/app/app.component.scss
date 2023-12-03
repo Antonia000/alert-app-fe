@@ -21,12 +21,28 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+
+      @media only screen and (max-width: 600px) {
+        padding: 0 5px;
+      }
     }
   }
 }
 .extended {
   margin-left: 18%;
+  @media only screen and (min-width: 1630px) {
+    margin-left: 17%;
+  }
+  @media only screen and (min-width: 1800px) {
+    margin-left: 12%;
+  }
+  @media only screen and (min-width: 2300px) {
+    margin-left: 10%;
+  }
 }
 .unextended {
-  margin-left: 60px;
+  margin-left: 80px;
+  @media only screen and (max-width: 600px) {
+    margin-left: 55px;
+  }
 }
