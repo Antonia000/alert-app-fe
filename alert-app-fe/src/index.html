@@ -36,11 +36,12 @@
     />
     <add
       name="Content-Security-Policy"
-      value="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://stackpath.bootstrapcdn.com https://code.jquery.com https://cdnjs.com https://cdnjs.cloudflare.com; 
-          style-src 'self' 'unsafe-inline' 'unsafe-eval' fonts.gstatic.com fonts.googleapis.com https://stackpath.bootstrapcdn.com https://use.fontawesome.com;
+      value="script-src 'self' 'unsafe-inline' https://europe-west2-prod-alert-app.cloudfunctions.net/api
+      https://europe-west2-alert-app-d1905.cloudfunctions.net/api https://googletagmanager.com https://tagmanager.google.com https://fonts.googleapis.com ; style-src * 'unsafe-inline' 'unsafe-eval';
           object-src 'none';
           img-src 'self' data: blob:;
-          font-src 'self' data: https://use.fontawesome.com fonts.gstatic.com fonts.googleapis.com ;"
+          font-src 'self' data: https://use.fontawesome.com fonts.gstatic.com fonts.googleapis.com ;
+          script-src-elem * 'unsafe-inline'"
     />
   </head>
   <!-- Google tag (gtag.js) -->
