@@ -20,9 +20,6 @@
   font-size: vars.$font-size-large;
   &__right {
     font-size: vars.$font-size-extra-large;
-    @media only screen and (max-width: 600px) {
-      font-size: vars.$font-size-medium;
-    }
   }
   &__left {
     text-transform: capitalize;
@@ -31,7 +28,7 @@
     }
     &__more {
       font-size: vars.$font-size-small;
-      color: vars.$secondary-color;
+      color: white;
       text-transform: lowercase;
       @media only screen and (max-width: 600px) {
         font-size: vars.$font-size-small-mobile;

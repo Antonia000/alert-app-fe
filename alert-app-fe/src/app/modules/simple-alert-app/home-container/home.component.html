@@ -61,5 +61,10 @@
       [text]="'În ultima oră'"
       [title]="'Nu există avertizări emise'"
     ></app-no-data-card>
+    <div class="container__column__general__link">
+      <a *ngIf="nowcastAlerts.length > 0" [routerLink]="['/avertizari-meteo']"
+        >vezi avertizări în <b>județul tău</b>
+      </a>
+    </div>
   </div>
 </div>
