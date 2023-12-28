@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WeatherService } from './services/weather.service';
 import { HoroscopeModule } from './modules/simple-alert-app/horoscope-container/horoscope.module';
 import { InfoContainerModule } from './modules/simple-alert-app/info-container/info-container.module';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { InfoContainerModule } from './modules/simple-alert-app/info-container/i
     AlertContainerModule,
     HoroscopeModule,
     InfoContainerModule,
+    ScullyLibModule,
   ],
   providers: [NowcastService, WeatherService],
   bootstrap: [AppComponent],
