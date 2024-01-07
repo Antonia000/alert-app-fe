@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.avertizari-meteo.ro/sitemap.xml
