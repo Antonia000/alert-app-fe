@@ -5,21 +5,27 @@
   align-items: center;
   border: 1px solid none;
   border-radius: 10px;
-  background-image: linear-gradient(to right, white, vars.$primary-color-light);
+  background-image: linear-gradient(
+    to right,
+    rgb(246, 246, 246),
+    vars.$secondary-color-light
+  );
   padding: 25px 35px;
+  border: 1px solid vars.$secondary-color-bright;
+  box-shadow: 1px 1px 5px #7c7c7c27;
 
   &__title {
     width: 100%;
     font-weight: vars.$font-weight-normal;
     font-size: vars.$font-size-medium;
-    color: vars.$primary-color;
+    color: vars.$secondary-color;
     margin: 0;
     @media only screen and (max-width: 600px) {
       font-size: vars.$font-size-small;
     }
   }
   &__text {
-    color: vars.$primary-color-light;
+    color: vars.$secondary-color-light;
     opacity: 0.4;
     font-size: vars.$font-size-extra-small;
     margin: 0;
