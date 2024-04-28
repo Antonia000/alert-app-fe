@@ -30,7 +30,7 @@
     }
     &__more {
       font-size: vars.$font-size-small;
-      color: white;
+      color: #ffffffa2;
       text-transform: lowercase;
       @media only screen and (max-width: 600px) {
         font-size: vars.$font-size-small-mobile;
@@ -78,8 +78,8 @@
       }
     }
     &__bottom {
-      font-size: vars.$font-size-small;
-      color: vars.$accent-color;
+      font-size: vars.$font-size-extra-small;
+      color: #ffffffd1;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
