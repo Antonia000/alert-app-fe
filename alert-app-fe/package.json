@@ -25,7 +25,7 @@
     "@angular/platform-browser": "^16.2.9",
     "@angular/platform-browser-dynamic": "^16.2.9",
     "@angular/platform-server": "^12",
-    "@angular/router": "^16.2.12",
+    "@angular/router": "^12.2.6",
     "@angular/ssr": "^17.0.6",
     "@scullyio/init": "^2.1.41",
     "@scullyio/ng-lib": "^2.1.0",
