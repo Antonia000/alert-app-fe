@@ -27,7 +27,7 @@
     "@angular/platform-server": "^12",
     "@angular/router": "^12.2.6",
     "@angular/ssr": "^17.0.6",
-    "@scullyio/init": "^3.0.0-beta.1",
+    "@scullyio/init": "^2.1.41",
     "@scullyio/ng-lib": "^3.0.0-beta.1",
     "@scullyio/platform-server": "^2.1.41",
     "@scullyio/scully": "^3.0.0-beta.1",
