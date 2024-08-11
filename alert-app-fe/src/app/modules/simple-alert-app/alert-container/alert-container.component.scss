@@ -21,11 +21,18 @@
       color: vars.$primary-color;
       font-weight: vars.$font-weight-normal;
       font-size: vars.$font-size-title;
-      margin-bottom: 12px;
+      margin-bottom: 0;
       text-transform: capitalize;
       @media only screen and (max-width: 600px) {
         font-size: vars.$font-size-medium;
       }
+    }
+
+    &__subtitle {
+      color: vars.$secondary-color;
+      font-weight: vars.$font-weight-normal;
+      font-size: vars.$font-size-small;
+      margin-top: 0;
     }
   }
   &__nowcast {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, filter, map, of } from 'rxjs';
+import { getCurrentStringDate } from 'src/app/helpers/get-current-date.helper';
 import { HoroscopeSign } from 'src/app/helpers/horoscope-signs';
 import { HoroscopeCard, HoroscopeDto } from 'src/app/models/horoscope.model';
 import { HoroscopeService } from 'src/app/services/horoscope.service';
@@ -12,7 +13,7 @@ import { HoroscopeService } from 'src/app/services/horoscope.service';
 })
 export class HoroscopeContainerComponent implements OnInit {
   signs$: Observable<HoroscopeCard[]> = of();
-  date: string = '';
+  currentDate: string = '';
   constructor(
     private readonly horoscopeService: HoroscopeService,
     private readonly router: Router,
@@ -20,6 +21,7 @@ export class HoroscopeContainerComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.currentDate = getCurrentStringDate();
     this.signs$ = this.horoscopeService.getHoroscope().pipe(
       filter((data) => !!data),
       map((data: HoroscopeDto[]) => {

@@ -10,6 +10,7 @@ import { GeneralAlertService } from 'src/app/services/general.service';
 import { NowcastService } from 'src/app/services/nowcast.service';
 import { WeatherService } from 'src/app/services/weather.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { getCurrentStringDate } from 'src/app/helpers/get-current-date.helper';
 
 @Component({
   selector: 'app-home-container',
@@ -25,8 +26,10 @@ export class HomeContainerComponent {
   nowcastAlerts$: Observable<NowcastAlert[]> = of();
   generalAlerts$: Observable<GeneralAlert[]> = of();
   weatherForecast$: Observable<WeatherForecast[]> = of();
+  currentDate: string = '';
 
   ngOnInit() {
+    this.currentDate = getCurrentStringDate();
     this.weatherForecast$ = this.weatherService.getFirstWeatherForecasts(3);
     this.nowcastAlerts$ = this.nowcastService.getNowcastAlerts();
     this.generalAlerts$ = this.generalAlertService.getGeneralAlerts();
