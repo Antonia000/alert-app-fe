@@ -30,7 +30,6 @@ export class CacheInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       tap((event) => {
         if (event instanceof HttpResponse) {
-          console.log('not cached ', req.urlWithParams, event);
           // Cache the new response
           this.cache.set(req.urlWithParams, event);
         }
