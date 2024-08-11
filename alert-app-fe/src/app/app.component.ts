@@ -9,6 +9,7 @@ import {
 import { WeatherService } from './services/weather.service';
 import { Observable, catchError, filter, map, of, tap } from 'rxjs';
 import { TempWidget } from './modules/simple-alert-app/components/header/header.component';
+import { RoutingService } from './services/routing.service';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,8 @@ export class AppComponent {
 
   constructor(
     private router: Router,
-    private readonly weatherService: WeatherService
+    private readonly weatherService: WeatherService,
+    private readonly routingService: RoutingService
   ) {
     this.currentRoute = '';
     this.router.events.subscribe((event) => {
@@ -95,7 +97,8 @@ export class AppComponent {
           city: weatherForecast.oras.replace('-', ' '),
         }))
       );
-    this.router.navigate(['/avertizari-meteo/' + this.selectedCity]);
+
+    this.routingService.redirectTo('/avertizari-meteo/' + this.selectedCity);
   }
 
   handleSideMenuState(value: string) {

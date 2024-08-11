@@ -3,6 +3,9 @@
   <div class="container__column">
     <div class="container__column__weather">
       <p class="container__column__weather__title">Vremea în România</p>
+      <p class="container__column__weather__subtitle" *ngIf="currentDate">
+        astăzi, {{ currentDate }}
+      </p>
       <div
         *ngIf="weatherForecast$ | async as weatherForecasts; else loading"
         class="container__column__weather__forecasts"

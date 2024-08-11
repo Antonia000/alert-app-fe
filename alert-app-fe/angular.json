@@ -82,10 +82,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "alert-app-fe:build:production"
+              "buildTarget": "alert-app-fe:build:production"
             },
             "development": {
-              "browserTarget": "alert-app-fe:build:development"
+              "buildTarget": "alert-app-fe:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -93,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "alert-app-fe:build"
+            "buildTarget": "alert-app-fe:build"
           }
         },
         "test": {

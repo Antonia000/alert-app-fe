@@ -49,9 +49,9 @@ export class AlertSectionComponent {
         : '';
 
       const hours = this.setHour(duration);
-      const data: string = new Date(
-        `${alert.dataSfarsit.split('T')[0]}`
-      ).toDateString();
+      const data: string = new Date(`${alert.dataSfarsit.split('T')[0]}`)
+        .toDateString()
+        .slice(3);
 
       const customLogicForJudet = (): string => {
         let theCounties: string[] = [];

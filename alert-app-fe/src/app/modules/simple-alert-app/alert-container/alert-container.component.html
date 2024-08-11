@@ -2,6 +2,10 @@
 <div class="container">
   <div class="container__weather">
     <p class="container__weather__title">Vremea în {{ displayedCity }}</p>
+    <p class="container__weather__subtitle" *ngIf="currentDate">
+      astăzi, {{ currentDate }}
+    </p>
+
     <div class="container__weather__forecasts">
       <app-card
         *ngIf="weatherForecast$ | async as weatherForecast; else loading"

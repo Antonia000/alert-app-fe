@@ -5,13 +5,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid none;
+  border: 1px solid #fefefe;
   border-radius: 10px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 25px 35px;
   color: #fff;
+  box-shadow: 2px 2px 5px #7c7c7c27;
+
   @media only screen and (max-width: 1000px) {
     align-items: flex-start;
     padding: 15px 25px;
@@ -28,7 +30,7 @@
     }
     &__more {
       font-size: vars.$font-size-small;
-      color: white;
+      color: #ffffffa2;
       text-transform: lowercase;
       @media only screen and (max-width: 600px) {
         font-size: vars.$font-size-small-mobile;
@@ -38,13 +40,14 @@
   &__mini {
     width: 120px;
     height: 100px;
-    border: 1px solid none;
+    border: 1px solid #fefefe;
     border-radius: 10px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px;
     color: #fff;
+    box-shadow: 2px 2px 5px #7c7c7c27;
     @media only screen and (max-width: 600px) {
       width: 70px;
       height: 70px;
@@ -75,8 +78,8 @@
       }
     }
     &__bottom {
-      font-size: vars.$font-size-small;
-      color: vars.$accent-color;
+      font-size: vars.$font-size-extra-small;
+      color: #ffffffd1;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
