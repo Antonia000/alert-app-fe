@@ -9,36 +9,36 @@ export function determineWeatherCardImg(neb: string) {
   if (isDayTime) {
     switch (neb) {
       case conditions.CPND:
-        return 'cpnd.jpg';
+        return 'CPND.svg';
         break;
       case conditions.CAD:
-        return 'cad.jpg';
+        return 'CAD.svg';
         break;
       case conditions.CSD:
-        return 'csd.jpg';
+        return 'CSD.svg';
         break;
       case conditions.INDD:
-        return 'indd.jpg';
+        return 'CAD.svg';
         break;
       default:
-        return 'indd.jpg';
+        return 'CAD.svg';
     }
   } else {
     switch (neb) {
       case conditions.CPNN:
-        return 'cpnn.jpg';
+        return 'CAN.svg';
         break;
       case conditions.CAN:
-        return 'can.jpg';
+        return 'CAN.svg';
         break;
       case conditions.CSN:
-        return 'csn.jpg';
+        return 'CSN.svg';
         break;
       case conditions.INDN:
-        return 'indn.jpg';
+        return 'CSN.svg';
         break;
       default:
-        return 'indn.jpg';
+        return 'CSN.svg';
     }
   }
 }

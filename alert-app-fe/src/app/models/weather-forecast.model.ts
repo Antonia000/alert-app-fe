@@ -5,7 +5,7 @@ export interface WeatherForecast {
   nebulozitate: string;
   vant: string;
   data: string;
-  img: string;
+  img: WeatherConditions;
 }
 
 export enum WeatherConditions {
