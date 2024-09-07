@@ -1,0 +1,33 @@
+<div *ngIf="!isMini" class="card">
+  <div
+    class="card__icon"
+    [ngStyle]="{
+      'background-image':
+        'url' + '(' + '../../../../../assets/img/weather/' + 'CSN.svg' + ')'
+    }"
+  ></div>
+  <div class="card__left">
+    <p>{{ title }}</p>
+    <p class="card__left__more">umeazeala: {{ additional.umezeala }}</p>
+    <p class="card__left__more">vant: {{ additional.vant }}</p>
+    <p>{{ text }}&deg;C</p>
+  </div>
+  <div class="card__right"></div>
+</div>
+
+<div
+  *ngIf="isMini"
+  class="card__mini"
+  [ngStyle]="{
+    'background-image':
+      'url' + '(' + '../../../../../assets/img/weather/' + backgroundImage + ')'
+  }"
+>
+  <div class="card__mini__top">
+    <p>{{ text }}&deg;</p>
+  </div>
+  <div class="card__mini__bottom">
+    <p>{{ title }}</p>
+    <p class="card__mini__top__county">{{ county }}</p>
+  </div>
+</div>
