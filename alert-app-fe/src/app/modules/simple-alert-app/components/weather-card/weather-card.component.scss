@@ -56,16 +56,15 @@
     background-size: contain;
     padding: 15px;
     color: #fff;
-    box-shadow: 2px 2px 5px #7c7c7c27;
-    @media only screen and (max-width: 600px) {
-      width: 70px;
-      height: 70px;
-      padding: 12px;
-      align-items: center;
-    }
-
     font-weight: vars.$font-weight-normal;
     font-size: vars.$font-size-large;
+    box-shadow: 2px 2px 5px #7c7c7c27;
+    @media only screen and (max-width: 600px) {
+      width: 78px;
+      height: 70px;
+      padding: 10px;
+    }
+
     &__top {
       display: flex;
       justify-content: flex-end;
