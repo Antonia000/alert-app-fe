@@ -11,7 +11,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v1
         with:
-          node-version: 12.8
+          node-version: 18
       - name: Run install command
         run: npm i
         
