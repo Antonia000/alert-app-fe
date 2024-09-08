@@ -6,9 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./alert-app-fe
     steps:
       - name: Go to correct path folder
         run: cd --dir alert-app-fe
