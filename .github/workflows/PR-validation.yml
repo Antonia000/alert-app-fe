@@ -1,0 +1,19 @@
+name: PR validation CI
+on:
+  pull_request:
+    branches: [master, dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:  
+      - uses: actions/checkout@v1
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - name: Run install command
+        run: npm i
+        
+      - name: Run build command
+        run: npm run build
