@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Go to correct path folder
-        run: cd alert-app-fe 
+        run: cd ../../alert-app-fe
       - name: Run build command
         run:  npm run build
