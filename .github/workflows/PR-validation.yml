@@ -6,10 +6,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ../../alert-app-fe
     steps:
-      - uses: actions/checkout@v2
       - name: Go to correct path folder
-        run: cd ../alert-app-fe
-      - uses: actions/checkout@v2
+        run: cd --dir alert-app-fe
+         
       - name: Run build command
         run:  npm run build
