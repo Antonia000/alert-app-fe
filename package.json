@@ -10,6 +10,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "install": "npm install",
     "scully": "npx scully -- --project alert-app-fe",
     "scully:serve": "npx scully serve -- --project alert-app-fe"
   },
