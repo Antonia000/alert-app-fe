@@ -6,14 +6,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps: 
+    steps:  
+      - name: Install Node
       - uses: actions/setup-node@v1
         with:
           node-version: 12.8
-      - name: Install Node
-    
       - name: Run install command
         run: npm i
-
+        
       - name: Run build command
         run: npm run build
