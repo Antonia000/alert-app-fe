@@ -1,0 +1,14 @@
+name: PR validation CI
+on:
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run build command
+        run: npm run build
