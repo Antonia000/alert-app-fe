@@ -1,19 +1,23 @@
+@use "../styles.scss" as vars;
 .app {
   height: 100%;
 
   &__side__menu {
     height: 100%;
     position: fixed;
+    z-index: 1;
   }
 
   &__content {
     display: flex;
     flex-direction: column;
-    height: 100%;
 
     &__header {
       width: 100%;
       padding: 0;
+      position: sticky;
+      top: 0;
+      background-color: vars.$bg-00;
     }
     &__body {
       padding: 0 35px;
@@ -21,6 +25,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      height: 100%;
 
       @media only screen and (max-width: 600px) {
         padding: 0 5px;

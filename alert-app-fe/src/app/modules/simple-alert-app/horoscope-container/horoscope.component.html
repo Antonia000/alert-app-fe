@@ -6,7 +6,7 @@
   <div class="container__title">
     <p class="container__title__title">Horoscop</p>
     <p class="container__title__subtitle" *ngIf="signs.length">
-      astăzi, {{ signs[0].date }}
+      astăzi, {{ currentDate }}
     </p>
   </div>
   <div class="container__horoscope" *ngIf="signs.length > 0; else noData">

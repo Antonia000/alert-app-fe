@@ -2,7 +2,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { WeatherForecast } from '../models/weather-forecast.model';
+import {
+  WeatherConditions,
+  WeatherForecast,
+} from '../models/weather-forecast.model';
 import { determineWeatherCardImg } from '../helpers/determine-weather-img.helper';
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +25,7 @@ export class WeatherService {
             return {
               ...forecast,
               temperatura: Math.round(Number(forecast.temperatura)).toString(),
-              img: img,
+              img: img as unknown as WeatherConditions,
             };
           })
         ),
@@ -42,7 +45,7 @@ export class WeatherService {
           return {
             ...forecast,
             temperatura: Math.round(Number(forecast.temperatura)).toString(),
-            img: img,
+            img: img as unknown as WeatherConditions,
           };
         }),
         catchError(() => {

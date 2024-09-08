@@ -1,14 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { WeatherConditions } from 'src/app/models/weather-forecast.model';
 
 @Component({
   selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  templateUrl: './weather-card.component.html',
+  styleUrls: ['./weather-card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class WeatherCardComponent implements OnInit {
   @Input() title: string = '';
   @Input() text: string = '';
-  @Input() background: string = '';
+  @Input() backgroundImage: WeatherConditions = WeatherConditions.INDD;
   @Input() isMini: boolean = false;
   @Input() county: string = '';
   @Input() additional: { umezeala?: string; vant?: string } = {

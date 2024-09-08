@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CardModule } from '../components/card/card.module';
+import { WeatherCardModule } from '../components/weather-card/weather-card.module';
 import { AlertSectionModule } from '../components/alert-section/alert-section.module';
 import { RouterModule } from '@angular/router';
 import { AlertContainerComponent } from './alert-container.component';
@@ -11,7 +11,7 @@ import { LoaderModule } from '../components/loader/loader.module';
   declarations: [AlertContainerComponent],
   imports: [
     BrowserModule,
-    CardModule,
+    WeatherCardModule,
     AlertSectionModule,
     RouterModule,
     NoDataCardModule,
