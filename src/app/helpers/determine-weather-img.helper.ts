@@ -10,16 +10,12 @@ export function determineWeatherCardImg(neb: string) {
     switch (neb) {
       case conditions.CPND:
         return 'CPND.svg';
-        break;
       case conditions.CAD:
         return 'CAD.svg';
-        break;
       case conditions.CSD:
         return 'CSD.svg';
-        break;
       case conditions.INDD:
         return 'CAD.svg';
-        break;
       default:
         return 'CAD.svg';
     }
@@ -27,16 +23,12 @@ export function determineWeatherCardImg(neb: string) {
     switch (neb) {
       case conditions.CPNN:
         return 'CAN.svg';
-        break;
       case conditions.CAN:
         return 'CAN.svg';
-        break;
       case conditions.CSN:
         return 'CSN.svg';
-        break;
       case conditions.INDN:
         return 'CSN.svg';
-        break;
       default:
         return 'CSN.svg';
     }
@@ -73,7 +65,7 @@ function getSunriseSunset(latitude: number) {
 }
 
 // Function to determine if it's daytime or nighttime
-function isDaytime(latitude: number) {
+export function isDaytime(latitude: number) {
   const currentTime = new Date();
   const { sunrise, sunset } = getSunriseSunset(latitude);
 

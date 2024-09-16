@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { isDaytime } from 'src/app/helpers/determine-weather-img.helper';
 import { WeatherConditions } from 'src/app/models/weather-forecast.model';
 
 @Component({
@@ -16,8 +17,19 @@ export class WeatherCardComponent implements OnInit {
     umezeala: undefined,
     vant: undefined,
   };
+  isNightTime: boolean = false;
+  backgroundImagePath = '';
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.backgroundImagePath =
+      'url' +
+      '(' +
+      '../../../../../assets/img/weather/' +
+      this.backgroundImage +
+      ')';
+
+    this.isNightTime = this.backgroundImage.split('.')[0].endsWith('N');
+  }
 }
