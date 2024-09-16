@@ -65,7 +65,7 @@ function getSunriseSunset(latitude: number) {
 }
 
 // Function to determine if it's daytime or nighttime
-export function isDaytime(latitude: number) {
+function isDaytime(latitude: number) {
   const currentTime = new Date();
   const { sunrise, sunset } = getSunriseSunset(latitude);
 

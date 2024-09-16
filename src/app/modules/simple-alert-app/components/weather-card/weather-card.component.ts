@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { isDaytime } from 'src/app/helpers/determine-weather-img.helper';
 import { WeatherConditions } from 'src/app/models/weather-forecast.model';
 
 @Component({
