@@ -10,6 +10,7 @@ import { WeatherService } from './services/weather.service';
 import { Observable, catchError, filter, map, of, tap } from 'rxjs';
 import { TempWidget } from './modules/simple-alert-app/components/header/header.component';
 import { RoutingService } from './services/routing.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +34,6 @@ export class AppComponent {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         // Show progress spinner or progress bar
-        // console.log('Route change detected');
       }
 
       if (event instanceof NavigationEnd) {

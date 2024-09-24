@@ -1,28 +1,40 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of } from 'rxjs';
+import { Observable, catchError, filter, from, map, of, switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GeneralAlert, GeneralAlertDto } from '../models/general-alert.model';
 import { counties } from '../helpers/ro-counties.helper';
 import { removeAccentString } from '../helpers/accents.helper';
+import { Auth, getIdToken, authState, User } from '@angular/fire/auth';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class GeneralAlertService {
   BASE_URL: string = environment.be;
-  constructor(private readonly http: HttpClient) {}
+  token$: Observable<string> = of('null');
+
+  constructor(
+    private readonly http: HttpClient,
+    private authService: AuthService
+  ) {}
 
   getGeneralAlerts(): Observable<GeneralAlert[]> {
-    return this.http
-      .get<GeneralAlertDto[]>(this.BASE_URL + '/api' + '/general')
-      .pipe(
-        map((alerts) => {
-          return alerts.map((alert) => this.extractAlert(alert)).flat(1);
-        }),
-        catchError(() => {
-          new Error('Error while fetching general alerts!');
-          return of([]);
-        })
-      );
+    const generslAlerts = this.authService.getAuthHeaders().pipe(
+      switchMap((headers) => {
+        return this.http
+          .get<GeneralAlertDto[]>(this.BASE_URL + '/api' + '/general', headers)
+          .pipe(
+            map((alerts) => {
+              return alerts.map((alert) => this.extractAlert(alert)).flat(1);
+            }),
+            catchError(() => {
+              new Error('Error while fetching general alerts!');
+              return of([]);
+            })
+          );
+      })
+    );
+    return generslAlerts;
   }
 
   private extractAlert(generalAlert: GeneralAlertDto) {
