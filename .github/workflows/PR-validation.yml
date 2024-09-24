@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 18
       - name: Run install command
-        run: npm i
+        run: npm ci
         
       - name: Run build command
         run: npm run build
