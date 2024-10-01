@@ -6,14 +6,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:  
-      - uses: actions/checkout@v1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+        with:
+          submodules: true
+
       - name: Install Node
         uses: actions/setup-node@v1
         with:
           node-version: 18
+
       - name: Run install command
         run: npm ci
-        
+
       - name: Run build command
         run: npm run build
