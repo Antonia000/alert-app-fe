@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 import { GeneralAlert, GeneralAlertDto } from '../models/general-alert.model';
 import { counties } from '../helpers/ro-counties.helper';
 import { removeAccentString } from '../helpers/accents.helper';
-import { Auth, getIdToken, authState, User } from '@angular/fire/auth';
 import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
