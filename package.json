@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:dev": "ng serve --proxy-config src/proxy.config.json --configuration development",
+    "start:dev": "ng serve --proxy-config src/proxy.config.json",
     "deploy:dev": "ng build --configuration development && firebase use alert-app-d1905 && firebase deploy",
     "deploy:prod": "ng build --configuration production && firebase use prod-alert-app && firebase deploy",
     "build": "ng build",
@@ -15,12 +15,13 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "^17.1.0",
     "@angular/animations": "^17.3.10",
     "@angular/cdk": "^16.2.14",
+    "@angular/cli": "^17.1.0",
     "@angular/common": "^17.3.10",
     "@angular/compiler": "^17.3.10",
     "@angular/core": "^17.3.10",
+    "@angular/fire": "^18.0.0",
     "@angular/forms": "^17.3.10",
     "@angular/platform-browser": "^17.3.10",
     "@angular/platform-browser-dynamic": "^17.3.10",
@@ -44,6 +45,6 @@
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "tslib": "^2.6.2",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.2"
   }
 }

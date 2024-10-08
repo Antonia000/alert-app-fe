@@ -10,6 +10,19 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HoroscopeModule } from './modules/simple-alert-app/horoscope-container/horoscope.module';
 import { InfoContainerModule } from './modules/simple-alert-app/info-container/info-container.module';
 import { CacheInterceptor } from './interceptors/caching.interceptor';
+import { AngularFireModule } from '@angular/fire/compat';
+import {
+  AngularFireAuth,
+  AngularFireAuthModule,
+} from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment';
+import { AuthModule, getAuth, provideAuth } from '@angular/fire/auth';
+import {
+  FirebaseAppModule,
+  initializeApp,
+  provideFirebaseApp,
+} from '@angular/fire/app';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +36,10 @@ import { CacheInterceptor } from './interceptors/caching.interceptor';
     AlertContainerModule,
     HoroscopeModule,
     InfoContainerModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    FirebaseAppModule,
+    AuthModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
