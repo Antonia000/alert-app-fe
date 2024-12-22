@@ -49,5 +49,3 @@ scullyStats.json
 /scully/**/*.d.ts
 
 #env
-**/environments/environment.dev.ts
-**/environments/environment.prod.ts
