@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AuthUser } from './models/user-access.model';
 @Injectable({ providedIn: 'root' })
 export class AuthService {

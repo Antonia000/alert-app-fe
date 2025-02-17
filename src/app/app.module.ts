@@ -11,18 +11,10 @@ import { HoroscopeModule } from './modules/simple-alert-app/horoscope-container/
 import { InfoContainerModule } from './modules/simple-alert-app/info-container/info-container.module';
 import { CacheInterceptor } from './interceptors/caching.interceptor';
 import { AngularFireModule } from '@angular/fire/compat';
-import {
-  AngularFireAuth,
-  AngularFireAuthModule,
-} from '@angular/fire/compat/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AuthModule } from '@angular/fire/auth';
+import { FirebaseAppModule } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
-import { AuthModule, getAuth, provideAuth } from '@angular/fire/auth';
-import {
-  FirebaseAppModule,
-  initializeApp,
-  provideFirebaseApp,
-} from '@angular/fire/app';
-import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],

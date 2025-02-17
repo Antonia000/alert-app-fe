@@ -28,6 +28,7 @@
     "@angular/platform-server": "^17.3.10",
     "@angular/router": "^17.3.10",
     "@angular/ssr": "^17.3.8",
+    "dotenv": "^16.4.7",
     "i": "^0.3.7",
     "npm": "^10.8.0",
     "rxjs": "~7.5.0",
@@ -46,5 +47,10 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "tslib": "^2.6.2",
     "typescript": "^5.3.2"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

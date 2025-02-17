@@ -1,25 +1,9 @@
-import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  NavigationError,
-  NavigationStart,
-  Router,
-} from '@angular/router';
+import { Component } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { WeatherService } from './services/weather.service';
-import {
-  Observable,
-  catchError,
-  filter,
-  map,
-  of,
-  take,
-  takeLast,
-  tap,
-} from 'rxjs';
+import { Observable, filter, map, of } from 'rxjs';
 import { TempWidget } from './modules/simple-alert-app/components/header/header.component';
 import { RoutingService } from './services/routing.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
