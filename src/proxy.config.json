@@ -1,10 +1,8 @@
 {
   "/api": {
-    "target": "http://localhost:3000",
+    "target": "https://europe-west2-alert-app-d1905.cloudfunctions.net",
     "secure": true,
     "changeOrigin": true,
-    "pathRewrite": {
-      "^/api": ""
-    }
+    "logLevel": "debug"
   }
 }
