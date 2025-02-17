@@ -1,19 +1,15 @@
-import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Auth, authState, getIdToken, User } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable, Subject } from 'rxjs';
-
-//check if providedIn root it's correct
-//on navigating between routes : scrren is stuck in loading, on refresh works
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { AuthUser } from './models/user-access.model';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  userAccessSubject = new Subject<{
+  userAccess$ = new BehaviorSubject<AuthUser>({
     headers: {
-      'Content-Type': string;
-      authorization: string;
-    };
-  }>();
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${null}`,
+    },
+  });
   constructor(public afAuth: AngularFireAuth) {
     this.afAuth
       .signInAnonymously()
@@ -21,21 +17,20 @@ export class AuthService {
         return credentials.user?.getIdToken();
       })
       .then((token) => {
-        this.userAccessSubject.next({
+        this.userAccess$.next({
           headers: {
             'Content-Type': 'application/json',
             authorization: `Bearer ${token}`,
           },
         });
       })
-      .catch(() => {
+      .catch((err) => {
         console.warn('Login failed!');
+        console.log(err);
       });
   }
 
-  getAuthHeaders(): Observable<{
-    headers: { 'Content-Type': string; authorization: string };
-  }> {
-    return this.userAccessSubject.asObservable();
+  getAuthHeaders(): Observable<AuthUser> {
+    return this.userAccess$;
   }
 }

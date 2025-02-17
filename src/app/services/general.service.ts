@@ -18,7 +18,7 @@ export class GeneralAlertService {
   ) {}
 
   getGeneralAlerts(): Observable<GeneralAlert[]> {
-    const generslAlerts = this.authService.getAuthHeaders().pipe(
+    const generalAlerts = this.authService.getAuthHeaders().pipe(
       switchMap((headers) => {
         return this.http
           .get<GeneralAlertDto[]>(this.BASE_URL + '/api' + '/general', headers)
@@ -33,7 +33,7 @@ export class GeneralAlertService {
           );
       })
     );
-    return generslAlerts;
+    return generalAlerts;
   }
 
   private extractAlert(generalAlert: GeneralAlertDto) {

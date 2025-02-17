@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -7,7 +7,16 @@ import {
   Router,
 } from '@angular/router';
 import { WeatherService } from './services/weather.service';
-import { Observable, catchError, filter, map, of, tap } from 'rxjs';
+import {
+  Observable,
+  catchError,
+  filter,
+  map,
+  of,
+  take,
+  takeLast,
+  tap,
+} from 'rxjs';
 import { TempWidget } from './modules/simple-alert-app/components/header/header.component';
 import { RoutingService } from './services/routing.service';
 import { environment } from 'src/environments/environment';
@@ -32,27 +41,10 @@ export class AppComponent {
   ) {
     this.currentRoute = '';
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        // Show progress spinner or progress bar
-      }
-
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.url;
         if (this.currentRoute.includes('/avertizari-meteo')) {
           this.selectedCity = this.router.url?.split('/')[2];
-          this.selectedCityWeather$ = this.weatherService
-            .getWeatherByCity(this.selectedCity)
-            .pipe(
-              catchError((err) => {
-                return of(err);
-              }),
-              filter((city) => !!city),
-              map((weatherForecast) => ({
-                temp: parseInt(weatherForecast.temperatura).toFixed(),
-                city: weatherForecast.oras.replace('-', ' '),
-              }))
-            );
-
           this.headerHasSelect = true;
         } else {
           this.headerHasSelect = false;
@@ -70,16 +62,6 @@ export class AppComponent {
             localStorage.getItem('city') ?? 'bucuresti-baneasa'
           );
         }
-      } else {
-        this.selectedCityWeather$ = this.weatherService
-          .getWeatherByCity(localStorage.getItem('city') ?? 'bucuresti-baneasa')
-          .pipe(
-            filter((city) => !!city),
-            map((weatherForecast) => ({
-              temp: parseInt(weatherForecast.temperatura).toFixed(),
-              city: weatherForecast.oras.replace('-', ' '),
-            }))
-          );
       }
     });
   }
