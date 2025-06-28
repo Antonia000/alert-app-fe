@@ -11,23 +11,23 @@ export class AuthService {
     },
   });
   constructor(public afAuth: AngularFireAuth) {
-    this.afAuth
-      .signInAnonymously()
-      .then((credentials) => {
-        return credentials.user?.getIdToken();
-      })
-      .then((token) => {
-        this.userAccess$.next({
-          headers: {
-            'Content-Type': 'application/json',
-            authorization: `Bearer ${token}`,
-          },
-        });
-      })
-      .catch((err) => {
-        console.warn('Login failed!');
-        console.log(err);
-      });
+    // this.afAuth
+    //   .signInAnonymously()
+    //   .then((credentials) => {
+    //     return credentials.user?.getIdToken();
+    //   })
+    //   .then((token) => {
+    //     this.userAccess$.next({
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         authorization: `Bearer ${token}`,
+    //       },
+    //     });
+    //   })
+    //   .catch((err) => {
+    //     console.warn('Login failed!');
+    //     console.log(err);
+    //   });
   }
 
   getAuthHeaders(): Observable<AuthUser> {
