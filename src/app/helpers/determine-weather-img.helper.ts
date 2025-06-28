@@ -10,16 +10,12 @@ export function determineWeatherCardImg(neb: string) {
     switch (neb) {
       case conditions.CPND:
         return 'CPND.svg';
-        break;
       case conditions.CAD:
         return 'CAD.svg';
-        break;
       case conditions.CSD:
         return 'CSD.svg';
-        break;
       case conditions.INDD:
         return 'CAD.svg';
-        break;
       default:
         return 'CAD.svg';
     }
@@ -27,16 +23,12 @@ export function determineWeatherCardImg(neb: string) {
     switch (neb) {
       case conditions.CPNN:
         return 'CAN.svg';
-        break;
       case conditions.CAN:
         return 'CAN.svg';
-        break;
       case conditions.CSN:
         return 'CSN.svg';
-        break;
       case conditions.INDN:
         return 'CSN.svg';
-        break;
       default:
         return 'CSN.svg';
     }
