@@ -1,7 +1,7 @@
 name: PR validation CI
 on:
   pull_request:
-    branches: [master, dev]
+    branches: [master]
 
 jobs:
   build:
@@ -19,6 +19,17 @@ jobs:
 
       - name: Run install command
         run: npm ci --legacy-peer-deps
+        
+      - name: Define Env Secrets
+        env: 
+          apiKey: ${{ secrets.apiKey }}
+          authDomain: ${{ secrets.authDomain }}
+          databaseURL: ${{ secrets.databaseURL }}
+          projectId : ${{ secrets.projectId }}
+          storageBucket: ${{ secrets.storageBucket }}
+          messagingSenderId: ${{ secrets.messagingSenderId }}
+          appId: ${{ secrets.appId }}
+          measurementId: ${{ secrets.measurementId }}
 
       - name: Run build command
         run: npm run build
